@@ -1,0 +1,5 @@
+matrix_multiply.c:40:5: note: loop vectorized
+matrix_multiply.c:53:5: note: loop vectorized
+matrix_multiply.c:53:5: note: loop vectorized
+matrix_multiply.c:40:5: note: loop vectorized
+matrix_multiply.c:40:5: note: loop vectorized

@@ -1,0 +1,2095 @@
+matrix_multiply.c:13:8: note: ===vect_slp_analyze_bb===
+matrix_multiply.c:19:31: note: === vect_analyze_data_refs ===
+matrix_multiply.c:19:31: note: got vectype for stmt: _1 = tp.tv_sec;
+vector(2) long int
+matrix_multiply.c:19:31: note: got vectype for stmt: _3 = tp.tv_usec;
+vector(2) long int
+matrix_multiply.c:19:31: note: === vect_analyze_data_ref_accesses ===
+matrix_multiply.c:19:31: note: Detected interleaving load tp.tv_sec and tp.tv_usec
+matrix_multiply.c:19:31: note: Detected interleaving load of size 2 starting with _1 = tp.tv_sec;
+matrix_multiply.c:19:31: note: not vectorized: no grouped stores in basic block.
+
+Analyzing loop at matrix_multiply.c:26
+matrix_multiply.c:26:3: note: ===== analyze_loop_nest =====
+matrix_multiply.c:26:3: note: === vect_analyze_loop_form ===
+matrix_multiply.c:26:3: note: === vect_analyze_loop_form ===
+matrix_multiply.c:26:3: note: === get_loop_niters ===
+matrix_multiply.c:26:3: note: Considering outer-loop vectorization.
+matrix_multiply.c:26:3: note: === get_loop_niters ===
+matrix_multiply.c:26:3: note: not vectorized: loop contains function calls or data references that cannot be analyzed
+
+Analyzing loop at matrix_multiply.c:27
+matrix_multiply.c:27:5: note: ===== analyze_loop_nest =====
+matrix_multiply.c:27:5: note: === vect_analyze_loop_form ===
+matrix_multiply.c:27:5: note: === get_loop_niters ===
+matrix_multiply.c:27:5: note: not vectorized: loop contains function calls or data references that cannot be analyzed
+matrix_multiply.c:22:6: note: vectorized 0 loops in function.
+matrix_multiply.c:22:6: note: ===vect_slp_analyze_bb===
+matrix_multiply.c:22:6: note: ===vect_slp_analyze_bb===
+matrix_multiply.c:22:6: note: ===vect_slp_analyze_bb===
+matrix_multiply.c:29:33: note: === vect_analyze_data_refs ===
+matrix_multiply.c:29:33: note: got vectype for stmt: matrix_a[i_25][j_26] = _3;
+vector(2) double
+matrix_multiply.c:29:33: note: not vectorized: not enough data-refs in basic block.
+matrix_multiply.c:27:5: note: === vect_analyze_data_refs ===
+matrix_multiply.c:27:5: note: got vectype for stmt: matrix_b[i_25][j_26] = _6;
+vector(2) double
+matrix_multiply.c:27:5: note: got vectype for stmt: matrix_r[i_25][j_26] = 0.0;
+vector(2) double
+matrix_multiply.c:27:5: note: === vect_analyze_data_ref_accesses ===
+matrix_multiply.c:27:5: note: not consecutive access matrix_b[i_25][j_26] = _6;
+matrix_multiply.c:27:5: note: not consecutive access matrix_r[i_25][j_26] = 0.0;
+matrix_multiply.c:27:5: note: not vectorized: no grouped stores in basic block.
+matrix_multiply.c:27:5: note: ===vect_slp_analyze_bb===
+matrix_multiply.c:26:3: note: === vect_analyze_data_refs ===
+matrix_multiply.c:26:3: note: not vectorized: not enough data-refs in basic block.
+matrix_multiply.c:26:3: note: ===vect_slp_analyze_bb===
+matrix_multiply.c:26:3: note: ===vect_slp_analyze_bb===
+matrix_multiply.c:26:3: note: ===vect_slp_analyze_bb===
+matrix_multiply.c:33:1: note: === vect_analyze_data_refs ===
+matrix_multiply.c:33:1: note: not vectorized: not enough data-refs in basic block.
+
+Analyzing loop at matrix_multiply.c:39
+matrix_multiply.c:39:3: note: ===== analyze_loop_nest =====
+matrix_multiply.c:39:3: note: === vect_analyze_loop_form ===
+matrix_multiply.c:39:3: note: not vectorized: multiple nested loops.
+matrix_multiply.c:39:3: note: bad loop form.
+
+Analyzing loop at matrix_multiply.c:40
+matrix_multiply.c:40:5: note: ===== analyze_loop_nest =====
+matrix_multiply.c:40:5: note: === vect_analyze_loop_form ===
+matrix_multiply.c:40:5: note: === vect_analyze_loop_form ===
+matrix_multiply.c:40:5: note: === get_loop_niters ===
+matrix_multiply.c:40:5: note: Considering outer-loop vectorization.
+matrix_multiply.c:40:5: note: === get_loop_niters ===
+matrix_multiply.c:40:5: note: === vect_analyze_data_refs ===
+matrix_multiply.c:40:5: note: got vectype for stmt: matrix_r_I_I_lsm.20_6 = matrix_r[i_26][j_27];
+vector(2) double
+matrix_multiply.c:40:5: note: analyze in outer loop: *(&matrix_a + (sizetype) i_26 * 8000)
+matrix_multiply.c:40:5: note: 	outer base_address: &matrix_a + (sizetype) i_26 * 8000
+	outer offset from base address: 0
+	outer constant offset from base address: 0
+	outer step: 0
+	outer base alignment: 16
+
+	outer base misalignment: 0
+
+	outer offset alignment: 128
+
+	outer step alignment: 128
+matrix_multiply.c:40:5: note: got vectype for stmt: _2 = matrix_a[i_26][k_28];
+vector(2) double
+matrix_multiply.c:40:5: note: analyze in outer loop: *(&matrix_b + (sizetype) j_27 * 8)
+matrix_multiply.c:40:5: note: 	outer base_address: &matrix_b
+	outer offset from base address: 0
+	outer constant offset from base address: 0
+	outer step: 8
+	outer base alignment: 16
+
+	outer base misalignment: 0
+
+	outer offset alignment: 128
+
+	outer step alignment: 8
+matrix_multiply.c:40:5: note: got vectype for stmt: _3 = matrix_b[k_28][j_27];
+vector(2) double
+matrix_multiply.c:40:5: note: got vectype for stmt: matrix_r[i_26][j_27] = _45;
+vector(2) double
+matrix_multiply.c:40:5: note: === vect_analyze_scalar_cycles ===
+matrix_multiply.c:40:5: note: Analyze phi: j_27 = PHI <0(7), j_15(10)>
+matrix_multiply.c:40:5: note: Access function of PHI: {0, +, 1}_2
+matrix_multiply.c:40:5: note: step: 1,  init: 0
+matrix_multiply.c:40:5: note: Detected induction.
+matrix_multiply.c:40:5: note: Analyze phi: .MEM_30 = PHI <.MEM_31(7), .MEM_7(10)>
+matrix_multiply.c:40:5: note: Analyze phi: ivtmp_42 = PHI <1000(7), ivtmp_38(10)>
+matrix_multiply.c:40:5: note: Access function of PHI: {1000, +, 4294967295}_2
+matrix_multiply.c:40:5: note: step: 4294967295,  init: 1000
+matrix_multiply.c:40:5: note: Detected induction.
+matrix_multiply.c:40:5: note: === vect_analyze_scalar_cycles ===
+matrix_multiply.c:40:5: note: Analyze phi: k_28 = PHI <0(5), k_14(11)>
+matrix_multiply.c:40:5: note: Access function of PHI: {0, +, 1}_3
+matrix_multiply.c:40:5: note: step: 1,  init: 0
+matrix_multiply.c:40:5: note: Detected induction.
+matrix_multiply.c:40:5: note: Analyze phi: .MEM_29 = PHI <.MEM_30(5), .MEM_29(11)>
+matrix_multiply.c:40:5: note: Analyze phi: matrix_r_I_I_lsm.20_22 = PHI <matrix_r_I_I_lsm.20_6(5), _5(11)>
+matrix_multiply.c:40:5: note: Access function of PHI: {matrix_r_I_I_lsm.20_6, +, _4}_3
+matrix_multiply.c:40:5: note: step: _4,  init: matrix_r_I_I_lsm.20_6
+matrix_multiply.c:40:5: note: step unknown.
+matrix_multiply.c:40:5: note: Analyze phi: ivtmp_44 = PHI <1000(5), ivtmp_43(11)>
+matrix_multiply.c:40:5: note: Access function of PHI: {1000, +, 4294967295}_3
+matrix_multiply.c:40:5: note: step: 4294967295,  init: 1000
+matrix_multiply.c:40:5: note: Detected induction.
+matrix_multiply.c:40:5: note: Analyze phi: matrix_r_I_I_lsm.20_22 = PHI <matrix_r_I_I_lsm.20_6(5), _5(11)>
+matrix_multiply.c:40:5: note: detected reduction: _5 = _4 + matrix_r_I_I_lsm.20_22;
+matrix_multiply.c:40:5: note: Detected vectorizable nested cycle.
+matrix_multiply.c:40:5: note: === vect_pattern_recog ===
+matrix_multiply.c:40:5: note: vect_is_simple_use: operand _2
+matrix_multiply.c:40:5: note: def_stmt: _2 = matrix_a[i_26][k_28];
+matrix_multiply.c:40:5: note: type of def: internal
+matrix_multiply.c:40:5: note: === vect_analyze_data_ref_accesses ===
+matrix_multiply.c:40:5: note: zero step in outer loop.
+matrix_multiply.c:40:5: note: === vect_mark_stmts_to_be_vectorized ===
+matrix_multiply.c:40:5: note: init: phi relevant? j_27 = PHI <0(7), j_15(10)>
+matrix_multiply.c:40:5: note: init: phi relevant? .MEM_30 = PHI <.MEM_31(7), .MEM_7(10)>
+matrix_multiply.c:40:5: note: init: phi relevant? ivtmp_42 = PHI <1000(7), ivtmp_38(10)>
+matrix_multiply.c:40:5: note: init: stmt relevant? matrix_r_I_I_lsm.20_6 = matrix_r[i_26][j_27];
+matrix_multiply.c:40:5: note: init: phi relevant? k_28 = PHI <0(5), k_14(11)>
+matrix_multiply.c:40:5: note: init: phi relevant? .MEM_29 = PHI <.MEM_30(5), .MEM_29(11)>
+matrix_multiply.c:40:5: note: init: phi relevant? matrix_r_I_I_lsm.20_22 = PHI <matrix_r_I_I_lsm.20_6(5), _5(11)>
+matrix_multiply.c:40:5: note: init: phi relevant? ivtmp_44 = PHI <1000(5), ivtmp_43(11)>
+matrix_multiply.c:40:5: note: init: stmt relevant? _2 = matrix_a[i_26][k_28];
+matrix_multiply.c:40:5: note: init: stmt relevant? _3 = matrix_b[k_28][j_27];
+matrix_multiply.c:40:5: note: init: stmt relevant? _4 = _2 * _3;
+matrix_multiply.c:40:5: note: init: stmt relevant? _5 = _4 + matrix_r_I_I_lsm.20_22;
+matrix_multiply.c:40:5: note: init: stmt relevant? k_14 = k_28 + 1;
+matrix_multiply.c:40:5: note: init: stmt relevant? ivtmp_43 = ivtmp_44 - 1;
+matrix_multiply.c:40:5: note: init: stmt relevant? if (ivtmp_43 != 0)
+matrix_multiply.c:40:5: note: init: phi relevant? _45 = PHI <_5(3)>
+matrix_multiply.c:40:5: note: init: stmt relevant? matrix_r[i_26][j_27] = _45;
+matrix_multiply.c:40:5: note: vec_stmt_relevant_p: stmt has vdefs.
+matrix_multiply.c:40:5: note: mark relevant 5, live 0: matrix_r[i_26][j_27] = _45;
+matrix_multiply.c:40:5: note: init: stmt relevant? j_15 = j_27 + 1;
+matrix_multiply.c:40:5: note: init: stmt relevant? ivtmp_38 = ivtmp_42 - 1;
+matrix_multiply.c:40:5: note: init: stmt relevant? if (ivtmp_38 != 0)
+matrix_multiply.c:40:5: note: worklist: examine stmt: matrix_r[i_26][j_27] = _45;
+matrix_multiply.c:40:5: note: vect_is_simple_use: operand _45
+matrix_multiply.c:40:5: note: def_stmt: _45 = PHI <_5(3)>
+matrix_multiply.c:40:5: note: type of def: internal
+matrix_multiply.c:40:5: note: mark relevant 5, live 0: _45 = PHI <_5(3)>
+matrix_multiply.c:40:5: note: worklist: examine stmt: _45 = PHI <_5(3)>
+matrix_multiply.c:40:5: note: vect_is_simple_use: operand _5
+matrix_multiply.c:40:5: note: def_stmt: _5 = _4 + matrix_r_I_I_lsm.20_22;
+matrix_multiply.c:40:5: note: type of def: nested cycle
+matrix_multiply.c:40:5: note: inner-loop def-stmt defining outer-loop stmt.
+matrix_multiply.c:40:5: note: mark relevant 3, live 0: _5 = _4 + matrix_r_I_I_lsm.20_22;
+matrix_multiply.c:40:5: note: worklist: examine stmt: _5 = _4 + matrix_r_I_I_lsm.20_22;
+matrix_multiply.c:40:5: note: vect_is_simple_use: operand _4
+matrix_multiply.c:40:5: note: def_stmt: _4 = _2 * _3;
+matrix_multiply.c:40:5: note: type of def: internal
+matrix_multiply.c:40:5: note: mark relevant 3, live 0: _4 = _2 * _3;
+matrix_multiply.c:40:5: note: vect_is_simple_use: operand matrix_r_I_I_lsm.20_22
+matrix_multiply.c:40:5: note: def_stmt: matrix_r_I_I_lsm.20_22 = PHI <matrix_r_I_I_lsm.20_6(5), _5(11)>
+matrix_multiply.c:40:5: note: type of def: nested cycle
+matrix_multiply.c:40:5: note: mark relevant 3, live 0: matrix_r_I_I_lsm.20_22 = PHI <matrix_r_I_I_lsm.20_6(5), _5(11)>
+matrix_multiply.c:40:5: note: worklist: examine stmt: matrix_r_I_I_lsm.20_22 = PHI <matrix_r_I_I_lsm.20_6(5), _5(11)>
+matrix_multiply.c:40:5: note: vect_is_simple_use: operand matrix_r_I_I_lsm.20_6
+matrix_multiply.c:40:5: note: def_stmt: matrix_r_I_I_lsm.20_6 = matrix_r[i_26][j_27];
+matrix_multiply.c:40:5: note: type of def: internal
+matrix_multiply.c:40:5: note: outer-loop def-stmt defining inner-loop stmt.
+matrix_multiply.c:40:5: note: mark relevant 5, live 0: matrix_r_I_I_lsm.20_6 = matrix_r[i_26][j_27];
+matrix_multiply.c:40:5: note: vect_is_simple_use: operand _5
+matrix_multiply.c:40:5: note: def_stmt: _5 = _4 + matrix_r_I_I_lsm.20_22;
+matrix_multiply.c:40:5: note: type of def: nested cycle
+matrix_multiply.c:40:5: note: mark relevant 3, live 0: _5 = _4 + matrix_r_I_I_lsm.20_22;
+matrix_multiply.c:40:5: note: already marked relevant/live.
+matrix_multiply.c:40:5: note: worklist: examine stmt: matrix_r_I_I_lsm.20_6 = matrix_r[i_26][j_27];
+matrix_multiply.c:40:5: note: worklist: examine stmt: _4 = _2 * _3;
+matrix_multiply.c:40:5: note: vect_is_simple_use: operand _2
+matrix_multiply.c:40:5: note: def_stmt: _2 = matrix_a[i_26][k_28];
+matrix_multiply.c:40:5: note: type of def: internal
+matrix_multiply.c:40:5: note: mark relevant 3, live 0: _2 = matrix_a[i_26][k_28];
+matrix_multiply.c:40:5: note: vect_is_simple_use: operand _3
+matrix_multiply.c:40:5: note: def_stmt: _3 = matrix_b[k_28][j_27];
+matrix_multiply.c:40:5: note: type of def: internal
+matrix_multiply.c:40:5: note: mark relevant 3, live 0: _3 = matrix_b[k_28][j_27];
+matrix_multiply.c:40:5: note: worklist: examine stmt: _3 = matrix_b[k_28][j_27];
+matrix_multiply.c:40:5: note: worklist: examine stmt: _2 = matrix_a[i_26][k_28];
+matrix_multiply.c:40:5: note: === vect_analyze_data_ref_dependences ===
+matrix_multiply.c:40:5: note: dependence distance  = 0.
+matrix_multiply.c:40:5: note: dependence distance == 0 between matrix_r[i_26][j_27] and matrix_r[i_26][j_27]
+matrix_multiply.c:40:5: note: === vect_determine_vectorization_factor ===
+matrix_multiply.c:40:5: note: ==> examining phi: j_27 = PHI <0(7), j_15(10)>
+matrix_multiply.c:40:5: note: ==> examining phi: .MEM_30 = PHI <.MEM_31(7), .MEM_7(10)>
+matrix_multiply.c:40:5: note: ==> examining phi: ivtmp_42 = PHI <1000(7), ivtmp_38(10)>
+matrix_multiply.c:40:5: note: ==> examining statement: matrix_r_I_I_lsm.20_6 = matrix_r[i_26][j_27];
+matrix_multiply.c:40:5: note: get vectype for scalar type:  double
+matrix_multiply.c:40:5: note: vectype: vector(2) double
+matrix_multiply.c:40:5: note: nunits = 2
+matrix_multiply.c:40:5: note: ==> examining phi: k_28 = PHI <0(5), k_14(11)>
+matrix_multiply.c:40:5: note: ==> examining phi: .MEM_29 = PHI <.MEM_30(5), .MEM_29(11)>
+matrix_multiply.c:40:5: note: ==> examining phi: matrix_r_I_I_lsm.20_22 = PHI <matrix_r_I_I_lsm.20_6(5), _5(11)>
+matrix_multiply.c:40:5: note: get vectype for scalar type:  double
+matrix_multiply.c:40:5: note: vectype: vector(2) double
+matrix_multiply.c:40:5: note: nunits = 2
+matrix_multiply.c:40:5: note: ==> examining phi: ivtmp_44 = PHI <1000(5), ivtmp_43(11)>
+matrix_multiply.c:40:5: note: ==> examining statement: _2 = matrix_a[i_26][k_28];
+matrix_multiply.c:40:5: note: get vectype for scalar type:  double
+matrix_multiply.c:40:5: note: vectype: vector(2) double
+matrix_multiply.c:40:5: note: nunits = 2
+matrix_multiply.c:40:5: note: ==> examining statement: _3 = matrix_b[k_28][j_27];
+matrix_multiply.c:40:5: note: get vectype for scalar type:  double
+matrix_multiply.c:40:5: note: vectype: vector(2) double
+matrix_multiply.c:40:5: note: nunits = 2
+matrix_multiply.c:40:5: note: ==> examining statement: _4 = _2 * _3;
+matrix_multiply.c:40:5: note: get vectype for scalar type:  double
+matrix_multiply.c:40:5: note: vectype: vector(2) double
+matrix_multiply.c:40:5: note: get vectype for scalar type:  double
+matrix_multiply.c:40:5: note: vectype: vector(2) double
+matrix_multiply.c:40:5: note: nunits = 2
+matrix_multiply.c:40:5: note: ==> examining statement: _5 = _4 + matrix_r_I_I_lsm.20_22;
+matrix_multiply.c:40:5: note: get vectype for scalar type:  double
+matrix_multiply.c:40:5: note: vectype: vector(2) double
+matrix_multiply.c:40:5: note: get vectype for scalar type:  double
+matrix_multiply.c:40:5: note: vectype: vector(2) double
+matrix_multiply.c:40:5: note: nunits = 2
+matrix_multiply.c:40:5: note: ==> examining statement: k_14 = k_28 + 1;
+matrix_multiply.c:40:5: note: skip.
+matrix_multiply.c:40:5: note: ==> examining statement: ivtmp_43 = ivtmp_44 - 1;
+matrix_multiply.c:40:5: note: skip.
+matrix_multiply.c:40:5: note: ==> examining statement: if (ivtmp_43 != 0)
+matrix_multiply.c:40:5: note: skip.
+matrix_multiply.c:40:5: note: ==> examining phi: _45 = PHI <_5(3)>
+matrix_multiply.c:40:5: note: get vectype for scalar type:  double
+matrix_multiply.c:40:5: note: vectype: vector(2) double
+matrix_multiply.c:40:5: note: nunits = 2
+matrix_multiply.c:40:5: note: ==> examining statement: matrix_r[i_26][j_27] = _45;
+matrix_multiply.c:40:5: note: get vectype for scalar type:  double
+matrix_multiply.c:40:5: note: vectype: vector(2) double
+matrix_multiply.c:40:5: note: nunits = 2
+matrix_multiply.c:40:5: note: ==> examining statement: j_15 = j_27 + 1;
+matrix_multiply.c:40:5: note: skip.
+matrix_multiply.c:40:5: note: ==> examining statement: ivtmp_38 = ivtmp_42 - 1;
+matrix_multiply.c:40:5: note: skip.
+matrix_multiply.c:40:5: note: ==> examining statement: if (ivtmp_38 != 0)
+matrix_multiply.c:40:5: note: skip.
+matrix_multiply.c:40:5: note: vectorization factor = 2
+matrix_multiply.c:40:5: note: === vect_analyze_slp ===
+matrix_multiply.c:40:5: note: === vect_make_slp_decision ===
+matrix_multiply.c:40:5: note: vectorization_factor = 2, niters = 1000
+matrix_multiply.c:40:5: note: === vect_analyze_data_refs_alignment ===
+matrix_multiply.c:40:5: note: accesses have the same alignment: matrix_r[i_26][j_27] and matrix_r[i_26][j_27]
+matrix_multiply.c:40:5: note: recording new base alignment for &matrix_r
+matrix_multiply.c:40:5: note:   alignment:    16
+matrix_multiply.c:40:5: note:   misalignment: 0
+matrix_multiply.c:40:5: note:   based on:     matrix_r_I_I_lsm.20_6 = matrix_r[i_26][j_27];
+matrix_multiply.c:40:5: note: recording new base alignment for &matrix_a
+matrix_multiply.c:40:5: note:   alignment:    16
+matrix_multiply.c:40:5: note:   misalignment: 0
+matrix_multiply.c:40:5: note:   based on:     _2 = matrix_a[i_26][k_28];
+matrix_multiply.c:40:5: note: recording new base alignment for &matrix_a + (sizetype) i_26 * 8000
+matrix_multiply.c:40:5: note:   alignment:    16
+matrix_multiply.c:40:5: note:   misalignment: 0
+matrix_multiply.c:40:5: note:   based on:     _2 = matrix_a[i_26][k_28];
+matrix_multiply.c:40:5: note: recording new base alignment for &matrix_b
+matrix_multiply.c:40:5: note:   alignment:    16
+matrix_multiply.c:40:5: note:   misalignment: 0
+matrix_multiply.c:40:5: note:   based on:     _3 = matrix_b[k_28][j_27];
+matrix_multiply.c:40:5: note: vect_compute_data_ref_alignment:
+matrix_multiply.c:40:5: note: misalign = 0 bytes of ref matrix_r[i_26][j_27]
+matrix_multiply.c:40:5: note: vect_compute_data_ref_alignment:
+matrix_multiply.c:40:5: note: inner step doesn't divide the vector alignment.
+matrix_multiply.c:40:5: note: Unknown alignment for access: matrix_a[i_26][k_28]
+matrix_multiply.c:40:5: note: vect_compute_data_ref_alignment:
+matrix_multiply.c:40:5: note: inner step divides the vector alignment.
+matrix_multiply.c:40:5: note: misalign = 0 bytes of ref matrix_b[k_28][j_27]
+matrix_multiply.c:40:5: note: vect_compute_data_ref_alignment:
+matrix_multiply.c:40:5: note: misalign = 0 bytes of ref matrix_r[i_26][j_27]
+matrix_multiply.c:40:5: note: === vect_prune_runtime_alias_test_list ===
+matrix_multiply.c:40:5: note: === vect_enhance_data_refs_alignment ===
+matrix_multiply.c:40:5: note: Unknown misalignment, naturally aligned
+matrix_multiply.c:40:5: note: vect_can_advance_ivs_p:
+matrix_multiply.c:40:5: note: Analyze phi: j_27 = PHI <0(7), j_15(10)>
+matrix_multiply.c:40:5: note: Analyze phi: .MEM_30 = PHI <.MEM_31(7), .MEM_7(10)>
+matrix_multiply.c:40:5: note: reduc or virtual phi. skip.
+matrix_multiply.c:40:5: note: Analyze phi: ivtmp_42 = PHI <1000(7), ivtmp_38(10)>
+matrix_multiply.c:40:5: note: Vectorizing an unaligned access.
+matrix_multiply.c:40:5: note: === vect_analyze_loop_operations ===
+matrix_multiply.c:40:5: note: examining phi: j_27 = PHI <0(7), j_15(10)>
+matrix_multiply.c:40:5: note: examining phi: .MEM_30 = PHI <.MEM_31(7), .MEM_7(10)>
+matrix_multiply.c:40:5: note: examining phi: ivtmp_42 = PHI <1000(7), ivtmp_38(10)>
+matrix_multiply.c:40:5: note: ==> examining statement: matrix_r_I_I_lsm.20_6 = matrix_r[i_26][j_27];
+matrix_multiply.c:40:5: note: num. args = 4 (not unary/binary/ternary op).
+matrix_multiply.c:40:5: note: vect_is_simple_use: operand matrix_r[i_26][j_27]
+matrix_multiply.c:40:5: note: not ssa-name.
+matrix_multiply.c:40:5: note: use not simple.
+matrix_multiply.c:40:5: note: can't use a fully-masked loop because the target doesn't have the appropriate masked load or store.
+matrix_multiply.c:40:5: note: vect_model_load_cost: aligned.
+matrix_multiply.c:40:5: note: vect_model_load_cost: inside_cost = 12, prologue_cost = 0 .
+matrix_multiply.c:40:5: note: examining phi: k_28 = PHI <0(5), k_14(11)>
+matrix_multiply.c:40:5: note: examining phi: .MEM_29 = PHI <.MEM_30(5), .MEM_29(11)>
+matrix_multiply.c:40:5: note: examining phi: matrix_r_I_I_lsm.20_22 = PHI <matrix_r_I_I_lsm.20_6(5), _5(11)>
+matrix_multiply.c:40:5: note: examining phi: ivtmp_44 = PHI <1000(5), ivtmp_43(11)>
+matrix_multiply.c:40:5: note: ==> examining statement: _2 = matrix_a[i_26][k_28];
+matrix_multiply.c:40:5: note: num. args = 4 (not unary/binary/ternary op).
+matrix_multiply.c:40:5: note: vect_is_simple_use: operand matrix_a[i_26][k_28]
+matrix_multiply.c:40:5: note: not ssa-name.
+matrix_multiply.c:40:5: note: use not simple.
+matrix_multiply.c:40:5: note: vect_model_load_cost: unaligned supported by hardware.
+matrix_multiply.c:40:5: note: vect_model_load_cost: inside_cost = 600, prologue_cost = 0 .
+matrix_multiply.c:40:5: note: ==> examining statement: _3 = matrix_b[k_28][j_27];
+matrix_multiply.c:40:5: note: num. args = 4 (not unary/binary/ternary op).
+matrix_multiply.c:40:5: note: vect_is_simple_use: operand matrix_b[k_28][j_27]
+matrix_multiply.c:40:5: note: not ssa-name.
+matrix_multiply.c:40:5: note: use not simple.
+matrix_multiply.c:40:5: note: vect_model_load_cost: aligned.
+matrix_multiply.c:40:5: note: vect_model_load_cost: inside_cost = 600, prologue_cost = 0 .
+matrix_multiply.c:40:5: note: ==> examining statement: _4 = _2 * _3;
+matrix_multiply.c:40:5: note: vect_is_simple_use: operand _2
+matrix_multiply.c:40:5: note: def_stmt: _2 = matrix_a[i_26][k_28];
+matrix_multiply.c:40:5: note: type of def: internal
+matrix_multiply.c:40:5: note: vect_is_simple_use: operand _3
+matrix_multiply.c:40:5: note: def_stmt: _3 = matrix_b[k_28][j_27];
+matrix_multiply.c:40:5: note: type of def: internal
+matrix_multiply.c:40:5: note: === vectorizable_operation ===
+matrix_multiply.c:40:5: note: vect_model_simple_cost: inside_cost = 1000, prologue_cost = 0 .
+matrix_multiply.c:40:5: note: ==> examining statement: _5 = _4 + matrix_r_I_I_lsm.20_22;
+matrix_multiply.c:40:5: note: vect_is_simple_use: operand _4
+matrix_multiply.c:40:5: note: def_stmt: _4 = _2 * _3;
+matrix_multiply.c:40:5: note: type of def: internal
+matrix_multiply.c:40:5: note: vect_is_simple_use: operand matrix_r_I_I_lsm.20_22
+matrix_multiply.c:40:5: note: def_stmt: matrix_r_I_I_lsm.20_22 = PHI <matrix_r_I_I_lsm.20_6(5), _5(11)>
+matrix_multiply.c:40:5: note: type of def: nested cycle
+matrix_multiply.c:40:5: note: reduc op not supported by target.
+vect_model_reduction_cost: inside_cost = 600, prologue_cost = 4, epilogue_cost = 0 .
+matrix_multiply.c:40:5: note: ==> examining statement: k_14 = k_28 + 1;
+matrix_multiply.c:40:5: note: irrelevant.
+matrix_multiply.c:40:5: note: ==> examining statement: ivtmp_43 = ivtmp_44 - 1;
+matrix_multiply.c:40:5: note: irrelevant.
+matrix_multiply.c:40:5: note: ==> examining statement: if (ivtmp_43 != 0)
+matrix_multiply.c:40:5: note: irrelevant.
+matrix_multiply.c:40:5: note: examining phi: _45 = PHI <_5(3)>
+matrix_multiply.c:40:5: note: ==> examining statement: matrix_r[i_26][j_27] = _45;
+matrix_multiply.c:40:5: note: vect_is_simple_use: operand _45
+matrix_multiply.c:40:5: note: def_stmt: _45 = PHI <_5(3)>
+matrix_multiply.c:40:5: note: type of def: internal
+matrix_multiply.c:40:5: note: vect_model_store_cost: aligned.
+matrix_multiply.c:40:5: note: vect_model_store_cost: inside_cost = 12, prologue_cost = 0 .
+matrix_multiply.c:40:5: note: ==> examining statement: j_15 = j_27 + 1;
+matrix_multiply.c:40:5: note: irrelevant.
+matrix_multiply.c:40:5: note: ==> examining statement: ivtmp_38 = ivtmp_42 - 1;
+matrix_multiply.c:40:5: note: irrelevant.
+matrix_multiply.c:40:5: note: ==> examining statement: if (ivtmp_38 != 0)
+matrix_multiply.c:40:5: note: irrelevant.
+matrix_multiply.c:40:5: note: not using a fully-masked loop.
+matrix_multiply.c:40:5: note: Cost model analysis: 
+  Vector inside of loop cost: 2824
+  Vector prologue cost: 4
+  Vector epilogue cost: 0
+  Scalar iteration cost: 120024
+  Scalar outside cost: 0
+  Vector outside cost: 4
+  prologue iterations: 0
+  epilogue iterations: 0
+  Calculated minimum iters for profitability: 1
+matrix_multiply.c:40:5: note:   Runtime profitability threshold = 2
+matrix_multiply.c:40:5: note:   Static estimate profitability threshold = 2
+matrix_multiply.c:40:5: note: loop vectorized
+matrix_multiply.c:40:5: note: === vec_transform_loop ===
+matrix_multiply.c:40:5: note: ------>vectorizing phi: j_27 = PHI <j_15(10), 0(12)>
+matrix_multiply.c:40:5: note: ------>vectorizing phi: .MEM_30 = PHI <.MEM_7(10), .MEM_31(12)>
+matrix_multiply.c:40:5: note: ------>vectorizing phi: ivtmp_42 = PHI <ivtmp_38(10), 1000(12)>
+matrix_multiply.c:40:5: note: ------>vectorizing statement: matrix_r_I_I_lsm.20_6 = matrix_r[i_26][j_27];
+matrix_multiply.c:40:5: note: transform statement.
+matrix_multiply.c:40:5: note: transform load. ncopies = 1
+matrix_multiply.c:40:5: note: create vector_type-pointer variable to type: vector(2) double  vectorizing an array ref: matrix_r
+matrix_multiply.c:40:5: note: created vectp_matrix_r.22_35
+matrix_multiply.c:40:5: note: add new stmt: vect_matrix_r_I_I_lsm.23_24 = MEM[(double *)vectp_matrix_r.21_32];
+matrix_multiply.c:40:5: note: ------>vectorizing phi: k_28 = PHI <0(5), k_14(11)>
+matrix_multiply.c:40:5: note: ------>vectorizing phi: .MEM_29 = PHI <.MEM_30(5), .MEM_29(11)>
+matrix_multiply.c:40:5: note: ------>vectorizing phi: matrix_r_I_I_lsm.20_22 = PHI <matrix_r_I_I_lsm.20_6(5), _5(11)>
+matrix_multiply.c:40:5: note: transform phi.
+matrix_multiply.c:40:5: note: ------>vectorizing phi: ivtmp_44 = PHI <1000(5), ivtmp_43(11)>
+matrix_multiply.c:40:5: note: ------>vectorizing phi: vect__5.24_23 = PHI <(5), (11)>
+matrix_multiply.c:40:5: note: ------>vectorizing statement: _2 = matrix_a[i_26][k_28];
+matrix_multiply.c:40:5: note: transform statement.
+matrix_multiply.c:40:5: note: transform load. ncopies = 1
+matrix_multiply.c:40:5: note: create vector_type-pointer variable to type: vector(2) double  vectorizing an array ref: matrix_a
+matrix_multiply.c:40:5: note: created vectp.26_21
+matrix_multiply.c:40:5: note: add new stmt: vect__2.27_9 = MEM[(double *)vectp_matrix_a.25_11];
+matrix_multiply.c:40:5: note: add new stmt: vect_cst__41 = {_2, _2};
+matrix_multiply.c:40:5: note: created new init_stmt: vect_cst__41 = {_2, _2};
+matrix_multiply.c:40:5: note: Record the vdef for outer-loop vectorization.
+matrix_multiply.c:40:5: note: ------>vectorizing statement: vect_cst__41 = {_2, _2};
+matrix_multiply.c:40:5: note: ------>vectorizing statement: _3 = matrix_b[k_28][j_27];
+matrix_multiply.c:40:5: note: transform statement.
+matrix_multiply.c:40:5: note: transform load. ncopies = 1
+matrix_multiply.c:40:5: note: create vector_type-pointer variable to type: vector(2) double  vectorizing an array ref: matrix_b
+matrix_multiply.c:40:5: note: created &matrix_b
+matrix_multiply.c:40:5: note: add new stmt: vect__3.30_8 = MEM[(double *)vectp_matrix_b.28_1];
+matrix_multiply.c:40:5: note: Record the vdef for outer-loop vectorization.
+matrix_multiply.c:40:5: note: ------>vectorizing statement: _4 = _2 * _3;
+matrix_multiply.c:40:5: note: transform statement.
+matrix_multiply.c:40:5: note: vect_is_simple_use: operand _2
+matrix_multiply.c:40:5: note: def_stmt: _2 = matrix_a[i_26][k_28];
+matrix_multiply.c:40:5: note: type of def: internal
+matrix_multiply.c:40:5: note: vect_is_simple_use: operand _3
+matrix_multiply.c:40:5: note: def_stmt: _3 = matrix_b[k_28][j_27];
+matrix_multiply.c:40:5: note: type of def: internal
+matrix_multiply.c:40:5: note: transform binary/unary operation.
+matrix_multiply.c:40:5: note: vect_get_vec_def_for_operand: _2
+matrix_multiply.c:40:5: note: vect_is_simple_use: operand _2
+matrix_multiply.c:40:5: note: def_stmt: _2 = matrix_a[i_26][k_28];
+matrix_multiply.c:40:5: note: type of def: internal
+matrix_multiply.c:40:5: note:   def_stmt =  _2 = matrix_a[i_26][k_28];
+matrix_multiply.c:40:5: note: vect_get_vec_def_for_operand: _3
+matrix_multiply.c:40:5: note: vect_is_simple_use: operand _3
+matrix_multiply.c:40:5: note: def_stmt: _3 = matrix_b[k_28][j_27];
+matrix_multiply.c:40:5: note: type of def: internal
+matrix_multiply.c:40:5: note:   def_stmt =  _3 = matrix_b[k_28][j_27];
+matrix_multiply.c:40:5: note: add new stmt: vect__4.31_46 = vect_cst__41 * vect__3.30_8;
+matrix_multiply.c:40:5: note: Record the vdef for outer-loop vectorization.
+matrix_multiply.c:40:5: note: ------>vectorizing statement: _5 = _4 + matrix_r_I_I_lsm.20_22;
+matrix_multiply.c:40:5: note: transform statement.
+matrix_multiply.c:40:5: note: vect_is_simple_use: operand _4
+matrix_multiply.c:40:5: note: def_stmt: _4 = _2 * _3;
+matrix_multiply.c:40:5: note: type of def: internal
+matrix_multiply.c:40:5: note: vect_is_simple_use: operand matrix_r_I_I_lsm.20_22
+matrix_multiply.c:40:5: note: def_stmt: matrix_r_I_I_lsm.20_22 = PHI <matrix_r_I_I_lsm.20_6(5), _5(11)>
+matrix_multiply.c:40:5: note: type of def: nested cycle
+matrix_multiply.c:40:5: note: reduc op not supported by target.
+matrix_multiply.c:40:5: note: transform reduction.
+matrix_multiply.c:40:5: note: vect_get_vec_def_for_operand: _4
+matrix_multiply.c:40:5: note: vect_is_simple_use: operand _4
+matrix_multiply.c:40:5: note: def_stmt: _4 = _2 * _3;
+matrix_multiply.c:40:5: note: type of def: internal
+matrix_multiply.c:40:5: note:   def_stmt =  _4 = _2 * _3;
+matrix_multiply.c:40:5: note: vect_get_vec_def_for_operand: matrix_r_I_I_lsm.20_22
+matrix_multiply.c:40:5: note: vect_is_simple_use: operand matrix_r_I_I_lsm.20_22
+matrix_multiply.c:40:5: note: def_stmt: matrix_r_I_I_lsm.20_22 = PHI <matrix_r_I_I_lsm.20_6(5), _5(11)>
+matrix_multiply.c:40:5: note: type of def: nested cycle
+matrix_multiply.c:40:5: note:   def_stmt =  matrix_r_I_I_lsm.20_22 = PHI <matrix_r_I_I_lsm.20_6(5), _5(11)>
+matrix_multiply.c:40:5: note: add new stmt: vect__5.32_47 = vect__4.31_46 + vect__5.24_23;
+matrix_multiply.c:40:5: note: vect_is_simple_use: operand matrix_r_I_I_lsm.20_6
+matrix_multiply.c:40:5: note: def_stmt: matrix_r_I_I_lsm.20_6 = matrix_r[i_26][j_27];
+matrix_multiply.c:40:5: note: type of def: internal
+matrix_multiply.c:40:5: note: vect_get_vec_def_for_operand: matrix_r_I_I_lsm.20_6
+matrix_multiply.c:40:5: note: vect_is_simple_use: operand matrix_r_I_I_lsm.20_6
+matrix_multiply.c:40:5: note: def_stmt: matrix_r_I_I_lsm.20_6 = matrix_r[i_26][j_27];
+matrix_multiply.c:40:5: note: type of def: internal
+matrix_multiply.c:40:5: note:   def_stmt =  matrix_r_I_I_lsm.20_6 = matrix_r[i_26][j_27];
+matrix_multiply.c:40:5: note: transform reduction: created def-use cycle: vect__5.24_23 = PHI <vect_matrix_r_I_I_lsm.23_24(5), vect__5.32_47(11)>
+vect__5.32_47 = vect__4.31_46 + vect__5.24_23;
+matrix_multiply.c:40:5: note: ------>vectorizing statement: k_14 = k_28 + 1;
+matrix_multiply.c:40:5: note: ------>vectorizing statement: ivtmp_43 = ivtmp_44 - 1;
+matrix_multiply.c:40:5: note: ------>vectorizing statement: vectp_matrix_a.25_10 = vectp_matrix_a.25_11 + 8;
+matrix_multiply.c:40:5: note: ------>vectorizing statement: vectp_matrix_b.28_20 = vectp_matrix_b.28_1 + 8000;
+matrix_multiply.c:40:5: note: ------>vectorizing statement: if (ivtmp_43 != 0)
+matrix_multiply.c:40:5: note: ------>vectorizing phi: _45 = PHI <_5(3)>
+matrix_multiply.c:40:5: note: ------>vectorizing phi: vect__5.32_48 = PHI <vect__5.32_47(3)>
+matrix_multiply.c:40:5: note: ------>vectorizing statement: matrix_r[i_26][j_27] = _45;
+matrix_multiply.c:40:5: note: transform statement.
+matrix_multiply.c:40:5: note: vect_is_simple_use: operand _45
+matrix_multiply.c:40:5: note: def_stmt: _45 = PHI <_5(3)>
+matrix_multiply.c:40:5: note: type of def: internal
+matrix_multiply.c:40:5: note: transform store. ncopies = 1
+matrix_multiply.c:40:5: note: vect_get_vec_def_for_operand: _45
+matrix_multiply.c:40:5: note: vect_is_simple_use: operand _45
+matrix_multiply.c:40:5: note: def_stmt: _45 = PHI <_5(3)>
+matrix_multiply.c:40:5: note: type of def: internal
+matrix_multiply.c:40:5: note:   def_stmt =  _45 = PHI <_5(3)>
+matrix_multiply.c:40:5: note: create vector_type-pointer variable to type: vector(2) double  vectorizing an array ref: matrix_r
+matrix_multiply.c:40:5: note: created vectp_matrix_r.35_49
+matrix_multiply.c:40:5: note: add new stmt: MEM[(double *)vectp_matrix_r.34_52] = vect__5.32_48;
+matrix_multiply.c:40:5: note: ------>vectorizing statement: j_15 = j_27 + 1;
+matrix_multiply.c:40:5: note: ------>vectorizing statement: ivtmp_38 = ivtmp_42 - 1;
+matrix_multiply.c:40:5: note: ------>vectorizing statement: vectp_matrix_r.21_25 = vectp_matrix_r.21_32 + 16;
+matrix_multiply.c:40:5: note: ------>vectorizing statement: vectp_matrix_a.25_13 = vectp_matrix_a.25_17 + 0;
+matrix_multiply.c:40:5: note: ------>vectorizing statement: vectp_matrix_b.28_39 = vectp_matrix_b.28_40 + 16;
+matrix_multiply.c:40:5: note: ------>vectorizing statement: vectp_matrix_r.34_53 = vectp_matrix_r.34_52 + 16;
+matrix_multiply.c:40:5: note: ------>vectorizing statement: if (ivtmp_38 != 0)
+matrix_multiply.c:40:5: note: New loop exit condition: if (ivtmp_56 < 500)
+matrix_multiply.c:40:5: note: LOOP VECTORIZED
+matrix_multiply.c:40:5: note: OUTER LOOP VECTORIZED
+
+
+Analyzing loop at matrix_multiply.c:41
+matrix_multiply.c:41:7: note: ===== analyze_loop_nest =====
+matrix_multiply.c:41:7: note: outer-loop already vectorized.
+matrix_multiply.c:35:6: note: vectorized 1 loops in function.
+matrix_multiply.c:35:6: note: ===vect_slp_analyze_bb===
+matrix_multiply.c:35:6: note: ===vect_slp_analyze_bb===
+matrix_multiply.c:35:6: note: ===vect_slp_analyze_bb===
+matrix_multiply.c:41:7: note: === vect_analyze_data_refs ===
+matrix_multiply.c:41:7: note: got vectype for stmt: _2 = matrix_a[i_26][k_28];
+vector(2) double
+matrix_multiply.c:41:7: note: not vectorized: no vectype for stmt: vect__3.30_8 = MEM[(double *)vectp_matrix_b.28_1];
+ scalar_type: vector(2) double
+matrix_multiply.c:41:7: note: === vect_analyze_data_ref_accesses ===
+matrix_multiply.c:41:7: note: not consecutive access _2 = matrix_a[i_26][k_28];
+matrix_multiply.c:41:7: note: not vectorized: no grouped stores in basic block.
+matrix_multiply.c:41:7: note: ===vect_slp_analyze_bb===
+matrix_multiply.c:41:7: note: === vect_analyze_data_refs ===
+matrix_multiply.c:41:7: note: not vectorized: no vectype for stmt: MEM[(double *)vectp_matrix_r.34_52] = vect__5.32_48;
+ scalar_type: vector(2) double
+matrix_multiply.c:41:7: note: not vectorized: not enough data-refs in basic block.
+matrix_multiply.c:41:7: note: ===vect_slp_analyze_bb===
+matrix_multiply.c:41:7: note: ===vect_slp_analyze_bb===
+matrix_multiply.c:41:7: note: === vect_analyze_data_refs ===
+matrix_multiply.c:41:7: note: not vectorized: no vectype for stmt: vect_matrix_r_I_I_lsm.23_24 = MEM[(double *)vectp_matrix_r.21_32];
+ scalar_type: vector(2) double
+matrix_multiply.c:41:7: note: not vectorized: not enough data-refs in basic block.
+matrix_multiply.c:41:7: note: ===vect_slp_analyze_bb===
+matrix_multiply.c:39:3: note: === vect_analyze_data_refs ===
+matrix_multiply.c:39:3: note: not vectorized: not enough data-refs in basic block.
+matrix_multiply.c:39:3: note: ===vect_slp_analyze_bb===
+matrix_multiply.c:39:3: note: ===vect_slp_analyze_bb===
+matrix_multiply.c:39:3: note: === vect_analyze_data_refs ===
+matrix_multiply.c:39:3: note: not vectorized: not enough data-refs in basic block.
+matrix_multiply.c:39:3: note: ===vect_slp_analyze_bb===
+matrix_multiply.c:46:1: note: === vect_analyze_data_refs ===
+matrix_multiply.c:46:1: note: not vectorized: not enough data-refs in basic block.
+
+Analyzing loop at matrix_multiply.c:52
+matrix_multiply.c:52:3: note: ===== analyze_loop_nest =====
+matrix_multiply.c:52:3: note: === vect_analyze_loop_form ===
+matrix_multiply.c:52:3: note: === vect_analyze_loop_form ===
+matrix_multiply.c:52:3: note: === get_loop_niters ===
+matrix_multiply.c:52:3: note: Considering outer-loop vectorization.
+matrix_multiply.c:52:3: note: === get_loop_niters ===
+matrix_multiply.c:52:3: note: === vect_analyze_data_refs ===
+matrix_multiply.c:52:3: note: analyze in outer loop: *(&matrix_r + (sizetype) i_19 * 8000)
+matrix_multiply.c:52:3: note: 	outer base_address: &matrix_r
+	outer offset from base address: 0
+	outer constant offset from base address: 0
+	outer step: 8000
+	outer base alignment: 16
+
+	outer base misalignment: 0
+
+	outer offset alignment: 128
+
+	outer step alignment: 64
+matrix_multiply.c:52:3: note: got vectype for stmt: _1 = matrix_r[i_19][j_20];
+vector(2) double
+matrix_multiply.c:52:3: note: === vect_analyze_scalar_cycles ===
+matrix_multiply.c:52:3: note: Analyze phi: i_19 = PHI <0(2), i_12(7)>
+matrix_multiply.c:52:3: note: Access function of PHI: {0, +, 1}_1
+matrix_multiply.c:52:3: note: step: 1,  init: 0
+matrix_multiply.c:52:3: note: Detected induction.
+matrix_multiply.c:52:3: note: Analyze phi: ave_22 = PHI <0.0(2), ave_23(7)>
+matrix_multiply.c:52:3: note: Access function of PHI: ave_22
+matrix_multiply.c:52:3: note: Analyze phi: ivtmp_15 = PHI <1000(2), ivtmp_14(7)>
+matrix_multiply.c:52:3: note: Access function of PHI: {1000, +, 4294967295}_1
+matrix_multiply.c:52:3: note: step: 4294967295,  init: 1000
+matrix_multiply.c:52:3: note: Detected induction.
+matrix_multiply.c:52:3: note: Analyze phi: ave_22 = PHI <0.0(2), ave_23(7)>
+matrix_multiply.c:52:3: note: detected double reduction: ave_23 = PHI <ave_10(3)>
+matrix_multiply.c:52:3: note: Detected double reduction.
+matrix_multiply.c:52:3: note: === vect_analyze_scalar_cycles ===
+matrix_multiply.c:52:3: note: Analyze phi: j_20 = PHI <0(5), j_11(8)>
+matrix_multiply.c:52:3: note: Access function of PHI: {0, +, 1}_2
+matrix_multiply.c:52:3: note: step: 1,  init: 0
+matrix_multiply.c:52:3: note: Detected induction.
+matrix_multiply.c:52:3: note: Analyze phi: ave_21 = PHI <ave_22(5), ave_10(8)>
+matrix_multiply.c:52:3: note: Access function of PHI: {ave_22, +, _2}_2
+matrix_multiply.c:52:3: note: step: _2,  init: ave_22
+matrix_multiply.c:52:3: note: step unknown.
+matrix_multiply.c:52:3: note: Analyze phi: ivtmp_17 = PHI <1000(5), ivtmp_16(8)>
+matrix_multiply.c:52:3: note: Access function of PHI: {1000, +, 4294967295}_2
+matrix_multiply.c:52:3: note: step: 4294967295,  init: 1000
+matrix_multiply.c:52:3: note: Detected induction.
+matrix_multiply.c:52:3: note: Analyze phi: ave_21 = PHI <ave_22(5), ave_10(8)>
+matrix_multiply.c:52:3: note: detected reduction: ave_10 = _2 + ave_21;
+matrix_multiply.c:52:3: note: Detected vectorizable nested cycle.
+matrix_multiply.c:52:3: note: === vect_pattern_recog ===
+matrix_multiply.c:52:3: note: === vect_analyze_data_ref_accesses ===
+matrix_multiply.c:52:3: note: grouped access in outer loop.
+matrix_multiply.c:52:3: note: not vectorized: complicated access pattern.
+matrix_multiply.c:52:3: note: bad data access.
+
+Analyzing loop at matrix_multiply.c:53
+matrix_multiply.c:53:5: note: ===== analyze_loop_nest =====
+matrix_multiply.c:53:5: note: === vect_analyze_loop_form ===
+matrix_multiply.c:53:5: note: === get_loop_niters ===
+matrix_multiply.c:53:5: note: === vect_analyze_data_refs ===
+matrix_multiply.c:53:5: note: got vectype for stmt: _1 = matrix_r[i_19][j_20];
+vector(2) double
+matrix_multiply.c:53:5: note: === vect_analyze_scalar_cycles ===
+matrix_multiply.c:53:5: note: Analyze phi: j_20 = PHI <0(5), j_11(8)>
+matrix_multiply.c:53:5: note: Access function of PHI: {0, +, 1}_2
+matrix_multiply.c:53:5: note: step: 1,  init: 0
+matrix_multiply.c:53:5: note: Detected induction.
+matrix_multiply.c:53:5: note: Analyze phi: ave_21 = PHI <ave_22(5), ave_10(8)>
+matrix_multiply.c:53:5: note: Access function of PHI: {ave_22, +, _2}_2
+matrix_multiply.c:53:5: note: step: _2,  init: ave_22
+matrix_multiply.c:53:5: note: step unknown.
+matrix_multiply.c:53:5: note: Analyze phi: ivtmp_17 = PHI <1000(5), ivtmp_16(8)>
+matrix_multiply.c:53:5: note: Access function of PHI: {1000, +, 4294967295}_2
+matrix_multiply.c:53:5: note: step: 4294967295,  init: 1000
+matrix_multiply.c:53:5: note: Detected induction.
+matrix_multiply.c:53:5: note: Analyze phi: ave_21 = PHI <ave_22(5), ave_10(8)>
+matrix_multiply.c:53:5: note: detected reduction: ave_10 = _2 + ave_21;
+matrix_multiply.c:53:5: note: Detected reduction.
+matrix_multiply.c:53:5: note: === vect_pattern_recog ===
+matrix_multiply.c:53:5: note: === vect_analyze_data_ref_accesses ===
+matrix_multiply.c:53:5: note: === vect_mark_stmts_to_be_vectorized ===
+matrix_multiply.c:53:5: note: init: phi relevant? j_20 = PHI <0(5), j_11(8)>
+matrix_multiply.c:53:5: note: init: phi relevant? ave_21 = PHI <ave_22(5), ave_10(8)>
+matrix_multiply.c:53:5: note: init: phi relevant? ivtmp_17 = PHI <1000(5), ivtmp_16(8)>
+matrix_multiply.c:53:5: note: init: stmt relevant? _1 = matrix_r[i_19][j_20];
+matrix_multiply.c:53:5: note: init: stmt relevant? _2 = _1 / 1.0e+6;
+matrix_multiply.c:53:5: note: init: stmt relevant? ave_10 = _2 + ave_21;
+matrix_multiply.c:53:5: note: vec_stmt_relevant_p: used out of loop.
+matrix_multiply.c:53:5: note: vect_is_simple_use: operand _2
+matrix_multiply.c:53:5: note: def_stmt: _2 = _1 / 1.0e+6;
+matrix_multiply.c:53:5: note: type of def: internal
+matrix_multiply.c:53:5: note: vec_stmt_relevant_p: stmt live but not relevant.
+matrix_multiply.c:53:5: note: mark relevant 1, live 1: ave_10 = _2 + ave_21;
+matrix_multiply.c:53:5: note: init: stmt relevant? j_11 = j_20 + 1;
+matrix_multiply.c:53:5: note: init: stmt relevant? ivtmp_16 = ivtmp_17 - 1;
+matrix_multiply.c:53:5: note: init: stmt relevant? if (ivtmp_16 != 0)
+matrix_multiply.c:53:5: note: worklist: examine stmt: ave_10 = _2 + ave_21;
+matrix_multiply.c:53:5: note: vect_is_simple_use: operand _2
+matrix_multiply.c:53:5: note: def_stmt: _2 = _1 / 1.0e+6;
+matrix_multiply.c:53:5: note: type of def: internal
+matrix_multiply.c:53:5: note: mark relevant 1, live 0: _2 = _1 / 1.0e+6;
+matrix_multiply.c:53:5: note: vect_is_simple_use: operand ave_21
+matrix_multiply.c:53:5: note: def_stmt: ave_21 = PHI <ave_22(5), ave_10(8)>
+matrix_multiply.c:53:5: note: type of def: reduction
+matrix_multiply.c:53:5: note: mark relevant 1, live 0: ave_21 = PHI <ave_22(5), ave_10(8)>
+matrix_multiply.c:53:5: note: worklist: examine stmt: ave_21 = PHI <ave_22(5), ave_10(8)>
+matrix_multiply.c:53:5: note: vect_is_simple_use: operand ave_22
+matrix_multiply.c:53:5: note: def_stmt: ave_22 = PHI <0.0(2), ave_23(7)>
+matrix_multiply.c:53:5: note: type of def: external
+matrix_multiply.c:53:5: note: def_stmt is out of loop.
+matrix_multiply.c:53:5: note: vect_is_simple_use: operand ave_10
+matrix_multiply.c:53:5: note: def_stmt: ave_10 = _2 + ave_21;
+matrix_multiply.c:53:5: note: type of def: reduction
+matrix_multiply.c:53:5: note: reduc-stmt defining reduc-phi in the same nest.
+matrix_multiply.c:53:5: note: worklist: examine stmt: _2 = _1 / 1.0e+6;
+matrix_multiply.c:53:5: note: vect_is_simple_use: operand _1
+matrix_multiply.c:53:5: note: def_stmt: _1 = matrix_r[i_19][j_20];
+matrix_multiply.c:53:5: note: type of def: internal
+matrix_multiply.c:53:5: note: mark relevant 1, live 0: _1 = matrix_r[i_19][j_20];
+matrix_multiply.c:53:5: note: worklist: examine stmt: _1 = matrix_r[i_19][j_20];
+matrix_multiply.c:53:5: note: === vect_analyze_data_ref_dependences ===
+matrix_multiply.c:53:5: note: === vect_determine_vectorization_factor ===
+matrix_multiply.c:53:5: note: ==> examining phi: j_20 = PHI <0(5), j_11(8)>
+matrix_multiply.c:53:5: note: ==> examining phi: ave_21 = PHI <ave_22(5), ave_10(8)>
+matrix_multiply.c:53:5: note: get vectype for scalar type:  double
+matrix_multiply.c:53:5: note: vectype: vector(2) double
+matrix_multiply.c:53:5: note: nunits = 2
+matrix_multiply.c:53:5: note: ==> examining phi: ivtmp_17 = PHI <1000(5), ivtmp_16(8)>
+matrix_multiply.c:53:5: note: ==> examining statement: _1 = matrix_r[i_19][j_20];
+matrix_multiply.c:53:5: note: get vectype for scalar type:  double
+matrix_multiply.c:53:5: note: vectype: vector(2) double
+matrix_multiply.c:53:5: note: nunits = 2
+matrix_multiply.c:53:5: note: ==> examining statement: _2 = _1 / 1.0e+6;
+matrix_multiply.c:53:5: note: get vectype for scalar type:  double
+matrix_multiply.c:53:5: note: vectype: vector(2) double
+matrix_multiply.c:53:5: note: get vectype for scalar type:  double
+matrix_multiply.c:53:5: note: vectype: vector(2) double
+matrix_multiply.c:53:5: note: nunits = 2
+matrix_multiply.c:53:5: note: ==> examining statement: ave_10 = _2 + ave_21;
+matrix_multiply.c:53:5: note: get vectype for scalar type:  double
+matrix_multiply.c:53:5: note: vectype: vector(2) double
+matrix_multiply.c:53:5: note: get vectype for scalar type:  double
+matrix_multiply.c:53:5: note: vectype: vector(2) double
+matrix_multiply.c:53:5: note: nunits = 2
+matrix_multiply.c:53:5: note: ==> examining statement: j_11 = j_20 + 1;
+matrix_multiply.c:53:5: note: skip.
+matrix_multiply.c:53:5: note: ==> examining statement: ivtmp_16 = ivtmp_17 - 1;
+matrix_multiply.c:53:5: note: skip.
+matrix_multiply.c:53:5: note: ==> examining statement: if (ivtmp_16 != 0)
+matrix_multiply.c:53:5: note: skip.
+matrix_multiply.c:53:5: note: vectorization factor = 2
+matrix_multiply.c:53:5: note: === vect_analyze_slp ===
+matrix_multiply.c:53:5: note: === vect_make_slp_decision ===
+matrix_multiply.c:53:5: note: vectorization_factor = 2, niters = 1000
+matrix_multiply.c:53:5: note: === vect_analyze_data_refs_alignment ===
+matrix_multiply.c:53:5: note: recording new base alignment for &matrix_r
+matrix_multiply.c:53:5: note:   alignment:    16
+matrix_multiply.c:53:5: note:   misalignment: 0
+matrix_multiply.c:53:5: note:   based on:     _1 = matrix_r[i_19][j_20];
+matrix_multiply.c:53:5: note: vect_compute_data_ref_alignment:
+matrix_multiply.c:53:5: note: misalign = 0 bytes of ref matrix_r[i_19][j_20]
+matrix_multiply.c:53:5: note: === vect_prune_runtime_alias_test_list ===
+matrix_multiply.c:53:5: note: === vect_enhance_data_refs_alignment ===
+matrix_multiply.c:53:5: note: vect_can_advance_ivs_p:
+matrix_multiply.c:53:5: note: Analyze phi: j_20 = PHI <0(5), j_11(8)>
+matrix_multiply.c:53:5: note: Analyze phi: ave_21 = PHI <ave_22(5), ave_10(8)>
+matrix_multiply.c:53:5: note: reduc or virtual phi. skip.
+matrix_multiply.c:53:5: note: Analyze phi: ivtmp_17 = PHI <1000(5), ivtmp_16(8)>
+matrix_multiply.c:53:5: note: vect_model_load_cost: aligned.
+matrix_multiply.c:53:5: note: vect_get_data_access_cost: inside_cost = 12, outside_cost = 0.
+matrix_multiply.c:53:5: note: === vect_analyze_loop_operations ===
+matrix_multiply.c:53:5: note: examining phi: j_20 = PHI <0(5), j_11(8)>
+matrix_multiply.c:53:5: note: examining phi: ave_21 = PHI <ave_22(5), ave_10(8)>
+matrix_multiply.c:53:5: note: examining phi: ivtmp_17 = PHI <1000(5), ivtmp_16(8)>
+matrix_multiply.c:53:5: note: ==> examining statement: _1 = matrix_r[i_19][j_20];
+matrix_multiply.c:53:5: note: num. args = 4 (not unary/binary/ternary op).
+matrix_multiply.c:53:5: note: vect_is_simple_use: operand matrix_r[i_19][j_20]
+matrix_multiply.c:53:5: note: not ssa-name.
+matrix_multiply.c:53:5: note: use not simple.
+matrix_multiply.c:53:5: note: can't use a fully-masked loop because the target doesn't have the appropriate masked load or store.
+matrix_multiply.c:53:5: note: vect_model_load_cost: aligned.
+matrix_multiply.c:53:5: note: vect_model_load_cost: inside_cost = 12, prologue_cost = 0 .
+matrix_multiply.c:53:5: note: ==> examining statement: _2 = _1 / 1.0e+6;
+matrix_multiply.c:53:5: note: vect_is_simple_use: operand _1
+matrix_multiply.c:53:5: note: def_stmt: _1 = matrix_r[i_19][j_20];
+matrix_multiply.c:53:5: note: type of def: internal
+matrix_multiply.c:53:5: note: vect_is_simple_use: operand 1.0e+6
+matrix_multiply.c:53:5: note: === vectorizable_operation ===
+matrix_multiply.c:53:5: note: vect_model_simple_cost: inside_cost = 68, prologue_cost = 4 .
+matrix_multiply.c:53:5: note: ==> examining statement: ave_10 = _2 + ave_21;
+matrix_multiply.c:53:5: note: vect_is_simple_use: operand _2
+matrix_multiply.c:53:5: note: def_stmt: _2 = _1 / 1.0e+6;
+matrix_multiply.c:53:5: note: type of def: internal
+matrix_multiply.c:53:5: note: vect_is_simple_use: operand ave_21
+matrix_multiply.c:53:5: note: def_stmt: ave_21 = PHI <ave_22(5), ave_10(8)>
+matrix_multiply.c:53:5: note: type of def: reduction
+matrix_multiply.c:53:5: note: reduc op not supported by target.
+vect_model_reduction_cost: inside_cost = 16, prologue_cost = 0, epilogue_cost = 0 .
+matrix_multiply.c:53:5: note: using an in-order (fold-left) reduction.
+matrix_multiply.c:53:5: note: ==> examining statement: j_11 = j_20 + 1;
+matrix_multiply.c:53:5: note: irrelevant.
+matrix_multiply.c:53:5: note: ==> examining statement: ivtmp_16 = ivtmp_17 - 1;
+matrix_multiply.c:53:5: note: irrelevant.
+matrix_multiply.c:53:5: note: ==> examining statement: if (ivtmp_16 != 0)
+matrix_multiply.c:53:5: note: irrelevant.
+matrix_multiply.c:53:5: note: not using a fully-masked loop.
+matrix_multiply.c:53:5: note: Cost model analysis: 
+  Vector inside of loop cost: 96
+  Vector prologue cost: 4
+  Vector epilogue cost: 0
+  Scalar iteration cost: 84
+  Scalar outside cost: 0
+  Vector outside cost: 4
+  prologue iterations: 0
+  epilogue iterations: 0
+  Calculated minimum iters for profitability: 1
+matrix_multiply.c:53:5: note:   Runtime profitability threshold = 2
+matrix_multiply.c:53:5: note:   Static estimate profitability threshold = 2
+matrix_multiply.c:53:5: note: loop vectorized
+matrix_multiply.c:53:5: note: === vec_transform_loop ===
+matrix_multiply.c:53:5: note: ------>vectorizing phi: j_20 = PHI <j_11(8), 0(9)>
+matrix_multiply.c:53:5: note: ------>vectorizing phi: ave_21 = PHI <ave_10(8), ave_22(9)>
+matrix_multiply.c:53:5: note: transform phi.
+matrix_multiply.c:53:5: note: ------>vectorizing phi: ivtmp_17 = PHI <ivtmp_16(8), 1000(9)>
+matrix_multiply.c:53:5: note: ------>vectorizing statement: _1 = matrix_r[i_19][j_20];
+matrix_multiply.c:53:5: note: transform statement.
+matrix_multiply.c:53:5: note: transform load. ncopies = 1
+matrix_multiply.c:53:5: note: create vector_type-pointer variable to type: vector(2) double  vectorizing an array ref: matrix_r
+matrix_multiply.c:53:5: note: created vectp_matrix_r.67_13
+matrix_multiply.c:53:5: note: add new stmt: vect__1.68_7 = MEM[(double *)vectp_matrix_r.66_4];
+matrix_multiply.c:53:5: note: ------>vectorizing statement: _2 = _1 / 1.0e+6;
+matrix_multiply.c:53:5: note: transform statement.
+matrix_multiply.c:53:5: note: vect_is_simple_use: operand _1
+matrix_multiply.c:53:5: note: def_stmt: _1 = matrix_r[i_19][j_20];
+matrix_multiply.c:53:5: note: type of def: internal
+matrix_multiply.c:53:5: note: vect_is_simple_use: operand 1.0e+6
+matrix_multiply.c:53:5: note: transform binary/unary operation.
+matrix_multiply.c:53:5: note: vect_get_vec_def_for_operand: _1
+matrix_multiply.c:53:5: note: vect_is_simple_use: operand _1
+matrix_multiply.c:53:5: note: def_stmt: _1 = matrix_r[i_19][j_20];
+matrix_multiply.c:53:5: note: type of def: internal
+matrix_multiply.c:53:5: note:   def_stmt =  _1 = matrix_r[i_19][j_20];
+matrix_multiply.c:53:5: note: vect_get_vec_def_for_operand: 1.0e+6
+matrix_multiply.c:53:5: note: vect_is_simple_use: operand 1.0e+6
+matrix_multiply.c:53:5: note: created new init_stmt: vect_cst__6 = { 1.0e+6, 1.0e+6 };
+matrix_multiply.c:53:5: note: add new stmt: vect__2.69_24 = vect__1.68_7 / vect_cst__6;
+matrix_multiply.c:53:5: note: ------>vectorizing statement: ave_10 = _2 + ave_21;
+matrix_multiply.c:53:5: note: transform statement.
+matrix_multiply.c:53:5: note: vect_is_simple_use: operand _2
+matrix_multiply.c:53:5: note: def_stmt: _2 = _1 / 1.0e+6;
+matrix_multiply.c:53:5: note: type of def: internal
+matrix_multiply.c:53:5: note: vect_is_simple_use: operand ave_21
+matrix_multiply.c:53:5: note: def_stmt: ave_21 = PHI <ave_10(8), ave_22(9)>
+matrix_multiply.c:53:5: note: type of def: reduction
+matrix_multiply.c:53:5: note: reduc op not supported by target.
+matrix_multiply.c:53:5: note: transform reduction.
+matrix_multiply.c:53:5: note: vect_get_vec_def_for_operand: _2
+matrix_multiply.c:53:5: note: vect_is_simple_use: operand _2
+matrix_multiply.c:53:5: note: def_stmt: _2 = _1 / 1.0e+6;
+matrix_multiply.c:53:5: note: type of def: internal
+matrix_multiply.c:53:5: note:   def_stmt =  _2 = _1 / 1.0e+6;
+matrix_multiply.c:53:5: note: add new stmt: ave_10 = stmp_ave_10.70_26 + stmp_ave_10.70_27;
+matrix_multiply.c:53:5: note: ------>vectorizing statement: j_11 = j_20 + 1;
+matrix_multiply.c:53:5: note: ------>vectorizing statement: ivtmp_16 = ivtmp_17 - 1;
+matrix_multiply.c:53:5: note: ------>vectorizing statement: vectp_matrix_r.66_3 = vectp_matrix_r.66_4 + 16;
+matrix_multiply.c:53:5: note: ------>vectorizing statement: if (ivtmp_16 != 0)
+matrix_multiply.c:53:5: note: New loop exit condition: if (ivtmp_30 < 500)
+matrix_multiply.c:53:5: note: LOOP VECTORIZED
+
+matrix_multiply.c:48:8: note: vectorized 1 loops in function.
+matrix_multiply.c:48:8: note: ===vect_slp_analyze_bb===
+matrix_multiply.c:48:8: note: ===vect_slp_analyze_bb===
+matrix_multiply.c:48:8: note: ===vect_slp_analyze_bb===
+matrix_multiply.c:54:11: note: === vect_analyze_data_refs ===
+matrix_multiply.c:54:11: note: not vectorized: no vectype for stmt: vect__1.68_7 = MEM[(double *)vectp_matrix_r.66_4];
+ scalar_type: vector(2) double
+matrix_multiply.c:54:11: note: not vectorized: not enough data-refs in basic block.
+matrix_multiply.c:54:11: note: ===vect_slp_analyze_bb===
+matrix_multiply.c:52:3: note: === vect_analyze_data_refs ===
+matrix_multiply.c:52:3: note: not vectorized: not enough data-refs in basic block.
+matrix_multiply.c:52:3: note: ===vect_slp_analyze_bb===
+matrix_multiply.c:52:3: note: ===vect_slp_analyze_bb===
+matrix_multiply.c:52:3: note: === vect_analyze_data_refs ===
+matrix_multiply.c:52:3: note: not vectorized: not enough data-refs in basic block.
+matrix_multiply.c:52:3: note: ===vect_slp_analyze_bb===
+matrix_multiply.c:57:9: note: === vect_analyze_data_refs ===
+matrix_multiply.c:57:9: note: not vectorized: not enough data-refs in basic block.
+
+Analyzing loop at matrix_multiply.c:52
+matrix_multiply.c:52:3: note: ===== analyze_loop_nest =====
+matrix_multiply.c:52:3: note: === vect_analyze_loop_form ===
+matrix_multiply.c:52:3: note: === vect_analyze_loop_form ===
+matrix_multiply.c:52:3: note: === get_loop_niters ===
+matrix_multiply.c:52:3: note: Considering outer-loop vectorization.
+matrix_multiply.c:52:3: note: === get_loop_niters ===
+matrix_multiply.c:52:3: note: === vect_analyze_data_refs ===
+matrix_multiply.c:52:3: note: analyze in outer loop: *(&matrix_r + (sizetype) i_107 * 8000)
+matrix_multiply.c:52:3: note: 	outer base_address: &matrix_r
+	outer offset from base address: 0
+	outer constant offset from base address: 0
+	outer step: 8000
+	outer base alignment: 16
+
+	outer base misalignment: 0
+
+	outer offset alignment: 128
+
+	outer step alignment: 64
+matrix_multiply.c:52:3: note: got vectype for stmt: _44 = matrix_r[i_107][j_108];
+vector(2) double
+matrix_multiply.c:52:3: note: === vect_analyze_scalar_cycles ===
+matrix_multiply.c:52:3: note: Analyze phi: i_107 = PHI <0(16), i_49(21)>
+matrix_multiply.c:52:3: note: Access function of PHI: {0, +, 1}_8
+matrix_multiply.c:52:3: note: step: 1,  init: 0
+matrix_multiply.c:52:3: note: Detected induction.
+matrix_multiply.c:52:3: note: Analyze phi: ave_110 = PHI <0.0(16), ave_141(21)>
+matrix_multiply.c:52:3: note: Access function of PHI: ave_110
+matrix_multiply.c:52:3: note: Analyze phi: ivtmp_135 = PHI <1000(16), ivtmp_130(21)>
+matrix_multiply.c:52:3: note: Access function of PHI: {1000, +, 4294967295}_8
+matrix_multiply.c:52:3: note: step: 4294967295,  init: 1000
+matrix_multiply.c:52:3: note: Detected induction.
+matrix_multiply.c:52:3: note: Analyze phi: ave_110 = PHI <0.0(16), ave_141(21)>
+matrix_multiply.c:52:3: note: detected double reduction: ave_141 = PHI <ave_47(17)>
+matrix_multiply.c:52:3: note: Detected double reduction.
+matrix_multiply.c:52:3: note: === vect_analyze_scalar_cycles ===
+matrix_multiply.c:52:3: note: Analyze phi: j_108 = PHI <0(19), j_48(22)>
+matrix_multiply.c:52:3: note: Access function of PHI: {0, +, 1}_9
+matrix_multiply.c:52:3: note: step: 1,  init: 0
+matrix_multiply.c:52:3: note: Detected induction.
+matrix_multiply.c:52:3: note: Analyze phi: ave_109 = PHI <ave_110(19), ave_47(22)>
+matrix_multiply.c:52:3: note: Access function of PHI: {ave_110, +, _45}_9
+matrix_multiply.c:52:3: note: step: _45,  init: ave_110
+matrix_multiply.c:52:3: note: step unknown.
+matrix_multiply.c:52:3: note: Analyze phi: ivtmp_137 = PHI <1000(19), ivtmp_136(22)>
+matrix_multiply.c:52:3: note: Access function of PHI: {1000, +, 4294967295}_9
+matrix_multiply.c:52:3: note: step: 4294967295,  init: 1000
+matrix_multiply.c:52:3: note: Detected induction.
+matrix_multiply.c:52:3: note: Analyze phi: ave_109 = PHI <ave_110(19), ave_47(22)>
+matrix_multiply.c:52:3: note: detected reduction: ave_47 = _45 + ave_109;
+matrix_multiply.c:52:3: note: Detected vectorizable nested cycle.
+matrix_multiply.c:52:3: note: === vect_pattern_recog ===
+matrix_multiply.c:52:3: note: === vect_analyze_data_ref_accesses ===
+matrix_multiply.c:52:3: note: grouped access in outer loop.
+matrix_multiply.c:52:3: note: not vectorized: complicated access pattern.
+matrix_multiply.c:52:3: note: bad data access.
+
+Analyzing loop at matrix_multiply.c:53
+matrix_multiply.c:53:5: note: ===== analyze_loop_nest =====
+matrix_multiply.c:53:5: note: === vect_analyze_loop_form ===
+matrix_multiply.c:53:5: note: === get_loop_niters ===
+matrix_multiply.c:53:5: note: === vect_analyze_data_refs ===
+matrix_multiply.c:53:5: note: got vectype for stmt: _44 = matrix_r[i_107][j_108];
+vector(2) double
+matrix_multiply.c:53:5: note: === vect_analyze_scalar_cycles ===
+matrix_multiply.c:53:5: note: Analyze phi: j_108 = PHI <0(19), j_48(22)>
+matrix_multiply.c:53:5: note: Access function of PHI: {0, +, 1}_9
+matrix_multiply.c:53:5: note: step: 1,  init: 0
+matrix_multiply.c:53:5: note: Detected induction.
+matrix_multiply.c:53:5: note: Analyze phi: ave_109 = PHI <ave_110(19), ave_47(22)>
+matrix_multiply.c:53:5: note: Access function of PHI: {ave_110, +, _45}_9
+matrix_multiply.c:53:5: note: step: _45,  init: ave_110
+matrix_multiply.c:53:5: note: step unknown.
+matrix_multiply.c:53:5: note: Analyze phi: ivtmp_137 = PHI <1000(19), ivtmp_136(22)>
+matrix_multiply.c:53:5: note: Access function of PHI: {1000, +, 4294967295}_9
+matrix_multiply.c:53:5: note: step: 4294967295,  init: 1000
+matrix_multiply.c:53:5: note: Detected induction.
+matrix_multiply.c:53:5: note: Analyze phi: ave_109 = PHI <ave_110(19), ave_47(22)>
+matrix_multiply.c:53:5: note: detected reduction: ave_47 = _45 + ave_109;
+matrix_multiply.c:53:5: note: Detected reduction.
+matrix_multiply.c:53:5: note: === vect_pattern_recog ===
+matrix_multiply.c:53:5: note: === vect_analyze_data_ref_accesses ===
+matrix_multiply.c:53:5: note: === vect_mark_stmts_to_be_vectorized ===
+matrix_multiply.c:53:5: note: init: phi relevant? j_108 = PHI <0(19), j_48(22)>
+matrix_multiply.c:53:5: note: init: phi relevant? ave_109 = PHI <ave_110(19), ave_47(22)>
+matrix_multiply.c:53:5: note: init: phi relevant? ivtmp_137 = PHI <1000(19), ivtmp_136(22)>
+matrix_multiply.c:53:5: note: init: stmt relevant? _44 = matrix_r[i_107][j_108];
+matrix_multiply.c:53:5: note: init: stmt relevant? _45 = _44 / 1.0e+6;
+matrix_multiply.c:53:5: note: init: stmt relevant? ave_47 = _45 + ave_109;
+matrix_multiply.c:53:5: note: vec_stmt_relevant_p: used out of loop.
+matrix_multiply.c:53:5: note: vect_is_simple_use: operand _45
+matrix_multiply.c:53:5: note: def_stmt: _45 = _44 / 1.0e+6;
+matrix_multiply.c:53:5: note: type of def: internal
+matrix_multiply.c:53:5: note: vec_stmt_relevant_p: stmt live but not relevant.
+matrix_multiply.c:53:5: note: mark relevant 1, live 1: ave_47 = _45 + ave_109;
+matrix_multiply.c:53:5: note: init: stmt relevant? j_48 = j_108 + 1;
+matrix_multiply.c:53:5: note: init: stmt relevant? ivtmp_136 = ivtmp_137 - 1;
+matrix_multiply.c:53:5: note: init: stmt relevant? if (ivtmp_136 != 0)
+matrix_multiply.c:53:5: note: worklist: examine stmt: ave_47 = _45 + ave_109;
+matrix_multiply.c:53:5: note: vect_is_simple_use: operand _45
+matrix_multiply.c:53:5: note: def_stmt: _45 = _44 / 1.0e+6;
+matrix_multiply.c:53:5: note: type of def: internal
+matrix_multiply.c:53:5: note: mark relevant 1, live 0: _45 = _44 / 1.0e+6;
+matrix_multiply.c:53:5: note: vect_is_simple_use: operand ave_109
+matrix_multiply.c:53:5: note: def_stmt: ave_109 = PHI <ave_110(19), ave_47(22)>
+matrix_multiply.c:53:5: note: type of def: reduction
+matrix_multiply.c:53:5: note: mark relevant 1, live 0: ave_109 = PHI <ave_110(19), ave_47(22)>
+matrix_multiply.c:53:5: note: worklist: examine stmt: ave_109 = PHI <ave_110(19), ave_47(22)>
+matrix_multiply.c:53:5: note: vect_is_simple_use: operand ave_110
+matrix_multiply.c:53:5: note: def_stmt: ave_110 = PHI <0.0(16), ave_141(21)>
+matrix_multiply.c:53:5: note: type of def: external
+matrix_multiply.c:53:5: note: def_stmt is out of loop.
+matrix_multiply.c:53:5: note: vect_is_simple_use: operand ave_47
+matrix_multiply.c:53:5: note: def_stmt: ave_47 = _45 + ave_109;
+matrix_multiply.c:53:5: note: type of def: reduction
+matrix_multiply.c:53:5: note: reduc-stmt defining reduc-phi in the same nest.
+matrix_multiply.c:53:5: note: worklist: examine stmt: _45 = _44 / 1.0e+6;
+matrix_multiply.c:53:5: note: vect_is_simple_use: operand _44
+matrix_multiply.c:53:5: note: def_stmt: _44 = matrix_r[i_107][j_108];
+matrix_multiply.c:53:5: note: type of def: internal
+matrix_multiply.c:53:5: note: mark relevant 1, live 0: _44 = matrix_r[i_107][j_108];
+matrix_multiply.c:53:5: note: worklist: examine stmt: _44 = matrix_r[i_107][j_108];
+matrix_multiply.c:53:5: note: === vect_analyze_data_ref_dependences ===
+matrix_multiply.c:53:5: note: === vect_determine_vectorization_factor ===
+matrix_multiply.c:53:5: note: ==> examining phi: j_108 = PHI <0(19), j_48(22)>
+matrix_multiply.c:53:5: note: ==> examining phi: ave_109 = PHI <ave_110(19), ave_47(22)>
+matrix_multiply.c:53:5: note: get vectype for scalar type:  double
+matrix_multiply.c:53:5: note: vectype: vector(2) double
+matrix_multiply.c:53:5: note: nunits = 2
+matrix_multiply.c:53:5: note: ==> examining phi: ivtmp_137 = PHI <1000(19), ivtmp_136(22)>
+matrix_multiply.c:53:5: note: ==> examining statement: _44 = matrix_r[i_107][j_108];
+matrix_multiply.c:53:5: note: get vectype for scalar type:  double
+matrix_multiply.c:53:5: note: vectype: vector(2) double
+matrix_multiply.c:53:5: note: nunits = 2
+matrix_multiply.c:53:5: note: ==> examining statement: _45 = _44 / 1.0e+6;
+matrix_multiply.c:53:5: note: get vectype for scalar type:  double
+matrix_multiply.c:53:5: note: vectype: vector(2) double
+matrix_multiply.c:53:5: note: get vectype for scalar type:  double
+matrix_multiply.c:53:5: note: vectype: vector(2) double
+matrix_multiply.c:53:5: note: nunits = 2
+matrix_multiply.c:53:5: note: ==> examining statement: ave_47 = _45 + ave_109;
+matrix_multiply.c:53:5: note: get vectype for scalar type:  double
+matrix_multiply.c:53:5: note: vectype: vector(2) double
+matrix_multiply.c:53:5: note: get vectype for scalar type:  double
+matrix_multiply.c:53:5: note: vectype: vector(2) double
+matrix_multiply.c:53:5: note: nunits = 2
+matrix_multiply.c:53:5: note: ==> examining statement: j_48 = j_108 + 1;
+matrix_multiply.c:53:5: note: skip.
+matrix_multiply.c:53:5: note: ==> examining statement: ivtmp_136 = ivtmp_137 - 1;
+matrix_multiply.c:53:5: note: skip.
+matrix_multiply.c:53:5: note: ==> examining statement: if (ivtmp_136 != 0)
+matrix_multiply.c:53:5: note: skip.
+matrix_multiply.c:53:5: note: vectorization factor = 2
+matrix_multiply.c:53:5: note: === vect_analyze_slp ===
+matrix_multiply.c:53:5: note: === vect_make_slp_decision ===
+matrix_multiply.c:53:5: note: vectorization_factor = 2, niters = 1000
+matrix_multiply.c:53:5: note: === vect_analyze_data_refs_alignment ===
+matrix_multiply.c:53:5: note: recording new base alignment for &matrix_r
+matrix_multiply.c:53:5: note:   alignment:    16
+matrix_multiply.c:53:5: note:   misalignment: 0
+matrix_multiply.c:53:5: note:   based on:     _44 = matrix_r[i_107][j_108];
+matrix_multiply.c:53:5: note: vect_compute_data_ref_alignment:
+matrix_multiply.c:53:5: note: misalign = 0 bytes of ref matrix_r[i_107][j_108]
+matrix_multiply.c:53:5: note: === vect_prune_runtime_alias_test_list ===
+matrix_multiply.c:53:5: note: === vect_enhance_data_refs_alignment ===
+matrix_multiply.c:53:5: note: vect_can_advance_ivs_p:
+matrix_multiply.c:53:5: note: Analyze phi: j_108 = PHI <0(19), j_48(22)>
+matrix_multiply.c:53:5: note: Analyze phi: ave_109 = PHI <ave_110(19), ave_47(22)>
+matrix_multiply.c:53:5: note: reduc or virtual phi. skip.
+matrix_multiply.c:53:5: note: Analyze phi: ivtmp_137 = PHI <1000(19), ivtmp_136(22)>
+matrix_multiply.c:53:5: note: vect_model_load_cost: aligned.
+matrix_multiply.c:53:5: note: vect_get_data_access_cost: inside_cost = 12, outside_cost = 0.
+matrix_multiply.c:53:5: note: === vect_analyze_loop_operations ===
+matrix_multiply.c:53:5: note: examining phi: j_108 = PHI <0(19), j_48(22)>
+matrix_multiply.c:53:5: note: examining phi: ave_109 = PHI <ave_110(19), ave_47(22)>
+matrix_multiply.c:53:5: note: examining phi: ivtmp_137 = PHI <1000(19), ivtmp_136(22)>
+matrix_multiply.c:53:5: note: ==> examining statement: _44 = matrix_r[i_107][j_108];
+matrix_multiply.c:53:5: note: num. args = 4 (not unary/binary/ternary op).
+matrix_multiply.c:53:5: note: vect_is_simple_use: operand matrix_r[i_107][j_108]
+matrix_multiply.c:53:5: note: not ssa-name.
+matrix_multiply.c:53:5: note: use not simple.
+matrix_multiply.c:53:5: note: can't use a fully-masked loop because the target doesn't have the appropriate masked load or store.
+matrix_multiply.c:53:5: note: vect_model_load_cost: aligned.
+matrix_multiply.c:53:5: note: vect_model_load_cost: inside_cost = 12, prologue_cost = 0 .
+matrix_multiply.c:53:5: note: ==> examining statement: _45 = _44 / 1.0e+6;
+matrix_multiply.c:53:5: note: vect_is_simple_use: operand _44
+matrix_multiply.c:53:5: note: def_stmt: _44 = matrix_r[i_107][j_108];
+matrix_multiply.c:53:5: note: type of def: internal
+matrix_multiply.c:53:5: note: vect_is_simple_use: operand 1.0e+6
+matrix_multiply.c:53:5: note: === vectorizable_operation ===
+matrix_multiply.c:53:5: note: vect_model_simple_cost: inside_cost = 68, prologue_cost = 4 .
+matrix_multiply.c:53:5: note: ==> examining statement: ave_47 = _45 + ave_109;
+matrix_multiply.c:53:5: note: vect_is_simple_use: operand _45
+matrix_multiply.c:53:5: note: def_stmt: _45 = _44 / 1.0e+6;
+matrix_multiply.c:53:5: note: type of def: internal
+matrix_multiply.c:53:5: note: vect_is_simple_use: operand ave_109
+matrix_multiply.c:53:5: note: def_stmt: ave_109 = PHI <ave_110(19), ave_47(22)>
+matrix_multiply.c:53:5: note: type of def: reduction
+matrix_multiply.c:53:5: note: reduc op not supported by target.
+vect_model_reduction_cost: inside_cost = 16, prologue_cost = 0, epilogue_cost = 0 .
+matrix_multiply.c:53:5: note: using an in-order (fold-left) reduction.
+matrix_multiply.c:53:5: note: ==> examining statement: j_48 = j_108 + 1;
+matrix_multiply.c:53:5: note: irrelevant.
+matrix_multiply.c:53:5: note: ==> examining statement: ivtmp_136 = ivtmp_137 - 1;
+matrix_multiply.c:53:5: note: irrelevant.
+matrix_multiply.c:53:5: note: ==> examining statement: if (ivtmp_136 != 0)
+matrix_multiply.c:53:5: note: irrelevant.
+matrix_multiply.c:53:5: note: not using a fully-masked loop.
+matrix_multiply.c:53:5: note: Cost model analysis: 
+  Vector inside of loop cost: 96
+  Vector prologue cost: 4
+  Vector epilogue cost: 0
+  Scalar iteration cost: 84
+  Scalar outside cost: 0
+  Vector outside cost: 4
+  prologue iterations: 0
+  epilogue iterations: 0
+  Calculated minimum iters for profitability: 1
+matrix_multiply.c:53:5: note:   Runtime profitability threshold = 2
+matrix_multiply.c:53:5: note:   Static estimate profitability threshold = 2
+matrix_multiply.c:53:5: note: loop vectorized
+matrix_multiply.c:53:5: note: === vec_transform_loop ===
+matrix_multiply.c:53:5: note: ------>vectorizing phi: j_108 = PHI <j_48(22), 0(30)>
+matrix_multiply.c:53:5: note: ------>vectorizing phi: ave_109 = PHI <ave_47(22), ave_110(30)>
+matrix_multiply.c:53:5: note: transform phi.
+matrix_multiply.c:53:5: note: ------>vectorizing phi: ivtmp_137 = PHI <ivtmp_136(22), 1000(30)>
+matrix_multiply.c:53:5: note: ------>vectorizing statement: _44 = matrix_r[i_107][j_108];
+matrix_multiply.c:53:5: note: transform statement.
+matrix_multiply.c:53:5: note: transform load. ncopies = 1
+matrix_multiply.c:53:5: note: create vector_type-pointer variable to type: vector(2) double  vectorizing an array ref: matrix_r
+matrix_multiply.c:53:5: note: created vectp_matrix_r.89_94
+matrix_multiply.c:53:5: note: add new stmt: vect__44.90_89 = MEM[(double *)vectp_matrix_r.88_91];
+matrix_multiply.c:53:5: note: ------>vectorizing statement: _45 = _44 / 1.0e+6;
+matrix_multiply.c:53:5: note: transform statement.
+matrix_multiply.c:53:5: note: vect_is_simple_use: operand _44
+matrix_multiply.c:53:5: note: def_stmt: _44 = matrix_r[i_107][j_108];
+matrix_multiply.c:53:5: note: type of def: internal
+matrix_multiply.c:53:5: note: vect_is_simple_use: operand 1.0e+6
+matrix_multiply.c:53:5: note: transform binary/unary operation.
+matrix_multiply.c:53:5: note: vect_get_vec_def_for_operand: _44
+matrix_multiply.c:53:5: note: vect_is_simple_use: operand _44
+matrix_multiply.c:53:5: note: def_stmt: _44 = matrix_r[i_107][j_108];
+matrix_multiply.c:53:5: note: type of def: internal
+matrix_multiply.c:53:5: note:   def_stmt =  _44 = matrix_r[i_107][j_108];
+matrix_multiply.c:53:5: note: vect_get_vec_def_for_operand: 1.0e+6
+matrix_multiply.c:53:5: note: vect_is_simple_use: operand 1.0e+6
+matrix_multiply.c:53:5: note: created new init_stmt: vect_cst__88 = { 1.0e+6, 1.0e+6 };
+matrix_multiply.c:53:5: note: add new stmt: vect__45.91_86 = vect__44.90_89 / vect_cst__88;
+matrix_multiply.c:53:5: note: ------>vectorizing statement: ave_47 = _45 + ave_109;
+matrix_multiply.c:53:5: note: transform statement.
+matrix_multiply.c:53:5: note: vect_is_simple_use: operand _45
+matrix_multiply.c:53:5: note: def_stmt: _45 = _44 / 1.0e+6;
+matrix_multiply.c:53:5: note: type of def: internal
+matrix_multiply.c:53:5: note: vect_is_simple_use: operand ave_109
+matrix_multiply.c:53:5: note: def_stmt: ave_109 = PHI <ave_47(22), ave_110(30)>
+matrix_multiply.c:53:5: note: type of def: reduction
+matrix_multiply.c:53:5: note: reduc op not supported by target.
+matrix_multiply.c:53:5: note: transform reduction.
+matrix_multiply.c:53:5: note: vect_get_vec_def_for_operand: _45
+matrix_multiply.c:53:5: note: vect_is_simple_use: operand _45
+matrix_multiply.c:53:5: note: def_stmt: _45 = _44 / 1.0e+6;
+matrix_multiply.c:53:5: note: type of def: internal
+matrix_multiply.c:53:5: note:   def_stmt =  _45 = _44 / 1.0e+6;
+matrix_multiply.c:53:5: note: add new stmt: ave_47 = stmp_ave_47.92_80 + stmp_ave_47.92_79;
+matrix_multiply.c:53:5: note: ------>vectorizing statement: j_48 = j_108 + 1;
+matrix_multiply.c:53:5: note: ------>vectorizing statement: ivtmp_136 = ivtmp_137 - 1;
+matrix_multiply.c:53:5: note: ------>vectorizing statement: vectp_matrix_r.88_90 = vectp_matrix_r.88_91 + 16;
+matrix_multiply.c:53:5: note: ------>vectorizing statement: if (ivtmp_136 != 0)
+matrix_multiply.c:53:5: note: New loop exit condition: if (ivtmp_76 < 500)
+matrix_multiply.c:53:5: note: LOOP VECTORIZED
+
+
+Analyzing loop at matrix_multiply.c:71
+matrix_multiply.c:71:3: note: ===== analyze_loop_nest =====
+matrix_multiply.c:71:3: note: === vect_analyze_loop_form ===
+matrix_multiply.c:71:3: note: not vectorized: multiple nested loops.
+matrix_multiply.c:71:3: note: bad loop form.
+
+Analyzing loop at matrix_multiply.c:39
+matrix_multiply.c:39:3: note: ===== analyze_loop_nest =====
+matrix_multiply.c:39:3: note: === vect_analyze_loop_form ===
+matrix_multiply.c:39:3: note: not vectorized: multiple nested loops.
+matrix_multiply.c:39:3: note: bad loop form.
+
+Analyzing loop at matrix_multiply.c:40
+matrix_multiply.c:40:5: note: ===== analyze_loop_nest =====
+matrix_multiply.c:40:5: note: === vect_analyze_loop_form ===
+matrix_multiply.c:40:5: note: === vect_analyze_loop_form ===
+matrix_multiply.c:40:5: note: === get_loop_niters ===
+matrix_multiply.c:40:5: note: Considering outer-loop vectorization.
+matrix_multiply.c:40:5: note: === get_loop_niters ===
+matrix_multiply.c:40:5: note: === vect_analyze_data_refs ===
+matrix_multiply.c:40:5: note: got vectype for stmt: matrix_r_I_I_lsm.86_42 = matrix_r[i_104][j_105];
+vector(2) double
+matrix_multiply.c:40:5: note: analyze in outer loop: *(&matrix_a + (sizetype) i_104 * 8000)
+matrix_multiply.c:40:5: note: 	outer base_address: &matrix_a + (sizetype) i_104 * 8000
+	outer offset from base address: 0
+	outer constant offset from base address: 0
+	outer step: 0
+	outer base alignment: 16
+
+	outer base misalignment: 0
+
+	outer offset alignment: 128
+
+	outer step alignment: 128
+matrix_multiply.c:40:5: note: got vectype for stmt: _35 = matrix_a[i_104][k_106];
+vector(2) double
+matrix_multiply.c:40:5: note: analyze in outer loop: *(&matrix_b + (sizetype) j_105 * 8)
+matrix_multiply.c:40:5: note: 	outer base_address: &matrix_b
+	outer offset from base address: 0
+	outer constant offset from base address: 0
+	outer step: 8
+	outer base alignment: 16
+
+	outer base misalignment: 0
+
+	outer offset alignment: 128
+
+	outer step alignment: 8
+matrix_multiply.c:40:5: note: got vectype for stmt: _36 = matrix_b[k_106][j_105];
+vector(2) double
+matrix_multiply.c:40:5: note: got vectype for stmt: matrix_r[i_104][j_105] = _142;
+vector(2) double
+matrix_multiply.c:40:5: note: === vect_analyze_scalar_cycles ===
+matrix_multiply.c:40:5: note: Analyze phi: j_105 = PHI <0(14), j_40(25)>
+matrix_multiply.c:40:5: note: Access function of PHI: {0, +, 1}_6
+matrix_multiply.c:40:5: note: step: 1,  init: 0
+matrix_multiply.c:40:5: note: Detected induction.
+matrix_multiply.c:40:5: note: Analyze phi: .MEM_115 = PHI <.MEM_116(14), .MEM_43(25)>
+matrix_multiply.c:40:5: note: Analyze phi: ivtmp_127 = PHI <1000(14), ivtmp_123(25)>
+matrix_multiply.c:40:5: note: Access function of PHI: {1000, +, 4294967295}_6
+matrix_multiply.c:40:5: note: step: 4294967295,  init: 1000
+matrix_multiply.c:40:5: note: Detected induction.
+matrix_multiply.c:40:5: note: === vect_analyze_scalar_cycles ===
+matrix_multiply.c:40:5: note: Analyze phi: k_106 = PHI <0(12), k_39(26)>
+matrix_multiply.c:40:5: note: Access function of PHI: {0, +, 1}_7
+matrix_multiply.c:40:5: note: step: 1,  init: 0
+matrix_multiply.c:40:5: note: Detected induction.
+matrix_multiply.c:40:5: note: Analyze phi: .MEM_114 = PHI <.MEM_115(12), .MEM_114(26)>
+matrix_multiply.c:40:5: note: Analyze phi: matrix_r_I_I_lsm.86_9 = PHI <matrix_r_I_I_lsm.86_42(12), _38(26)>
+matrix_multiply.c:40:5: note: Access function of PHI: {matrix_r_I_I_lsm.86_42, +, _37}_7
+matrix_multiply.c:40:5: note: step: _37,  init: matrix_r_I_I_lsm.86_42
+matrix_multiply.c:40:5: note: step unknown.
+matrix_multiply.c:40:5: note: Analyze phi: ivtmp_129 = PHI <1000(12), ivtmp_128(26)>
+matrix_multiply.c:40:5: note: Access function of PHI: {1000, +, 4294967295}_7
+matrix_multiply.c:40:5: note: step: 4294967295,  init: 1000
+matrix_multiply.c:40:5: note: Detected induction.
+matrix_multiply.c:40:5: note: Analyze phi: matrix_r_I_I_lsm.86_9 = PHI <matrix_r_I_I_lsm.86_42(12), _38(26)>
+matrix_multiply.c:40:5: note: detected reduction: _38 = matrix_r_I_I_lsm.86_9 + _37;
+matrix_multiply.c:40:5: note: Detected vectorizable nested cycle.
+matrix_multiply.c:40:5: note: === vect_pattern_recog ===
+matrix_multiply.c:40:5: note: vect_is_simple_use: operand _35
+matrix_multiply.c:40:5: note: def_stmt: _35 = matrix_a[i_104][k_106];
+matrix_multiply.c:40:5: note: type of def: internal
+matrix_multiply.c:40:5: note: === vect_analyze_data_ref_accesses ===
+matrix_multiply.c:40:5: note: zero step in outer loop.
+matrix_multiply.c:40:5: note: === vect_mark_stmts_to_be_vectorized ===
+matrix_multiply.c:40:5: note: init: phi relevant? j_105 = PHI <0(14), j_40(25)>
+matrix_multiply.c:40:5: note: init: phi relevant? .MEM_115 = PHI <.MEM_116(14), .MEM_43(25)>
+matrix_multiply.c:40:5: note: init: phi relevant? ivtmp_127 = PHI <1000(14), ivtmp_123(25)>
+matrix_multiply.c:40:5: note: init: stmt relevant? matrix_r_I_I_lsm.86_42 = matrix_r[i_104][j_105];
+matrix_multiply.c:40:5: note: init: phi relevant? k_106 = PHI <0(12), k_39(26)>
+matrix_multiply.c:40:5: note: init: phi relevant? .MEM_114 = PHI <.MEM_115(12), .MEM_114(26)>
+matrix_multiply.c:40:5: note: init: phi relevant? matrix_r_I_I_lsm.86_9 = PHI <matrix_r_I_I_lsm.86_42(12), _38(26)>
+matrix_multiply.c:40:5: note: init: phi relevant? ivtmp_129 = PHI <1000(12), ivtmp_128(26)>
+matrix_multiply.c:40:5: note: init: stmt relevant? _35 = matrix_a[i_104][k_106];
+matrix_multiply.c:40:5: note: init: stmt relevant? _36 = matrix_b[k_106][j_105];
+matrix_multiply.c:40:5: note: init: stmt relevant? _37 = _35 * _36;
+matrix_multiply.c:40:5: note: init: stmt relevant? _38 = matrix_r_I_I_lsm.86_9 + _37;
+matrix_multiply.c:40:5: note: init: stmt relevant? k_39 = k_106 + 1;
+matrix_multiply.c:40:5: note: init: stmt relevant? ivtmp_128 = ivtmp_129 - 1;
+matrix_multiply.c:40:5: note: init: stmt relevant? if (ivtmp_128 != 0)
+matrix_multiply.c:40:5: note: init: phi relevant? _142 = PHI <_38(10)>
+matrix_multiply.c:40:5: note: init: stmt relevant? matrix_r[i_104][j_105] = _142;
+matrix_multiply.c:40:5: note: vec_stmt_relevant_p: stmt has vdefs.
+matrix_multiply.c:40:5: note: mark relevant 5, live 0: matrix_r[i_104][j_105] = _142;
+matrix_multiply.c:40:5: note: init: stmt relevant? j_40 = j_105 + 1;
+matrix_multiply.c:40:5: note: init: stmt relevant? ivtmp_123 = ivtmp_127 - 1;
+matrix_multiply.c:40:5: note: init: stmt relevant? if (ivtmp_123 != 0)
+matrix_multiply.c:40:5: note: worklist: examine stmt: matrix_r[i_104][j_105] = _142;
+matrix_multiply.c:40:5: note: vect_is_simple_use: operand _142
+matrix_multiply.c:40:5: note: def_stmt: _142 = PHI <_38(10)>
+matrix_multiply.c:40:5: note: type of def: internal
+matrix_multiply.c:40:5: note: mark relevant 5, live 0: _142 = PHI <_38(10)>
+matrix_multiply.c:40:5: note: worklist: examine stmt: _142 = PHI <_38(10)>
+matrix_multiply.c:40:5: note: vect_is_simple_use: operand _38
+matrix_multiply.c:40:5: note: def_stmt: _38 = matrix_r_I_I_lsm.86_9 + _37;
+matrix_multiply.c:40:5: note: type of def: nested cycle
+matrix_multiply.c:40:5: note: inner-loop def-stmt defining outer-loop stmt.
+matrix_multiply.c:40:5: note: mark relevant 3, live 0: _38 = matrix_r_I_I_lsm.86_9 + _37;
+matrix_multiply.c:40:5: note: worklist: examine stmt: _38 = matrix_r_I_I_lsm.86_9 + _37;
+matrix_multiply.c:40:5: note: vect_is_simple_use: operand matrix_r_I_I_lsm.86_9
+matrix_multiply.c:40:5: note: def_stmt: matrix_r_I_I_lsm.86_9 = PHI <matrix_r_I_I_lsm.86_42(12), _38(26)>
+matrix_multiply.c:40:5: note: type of def: nested cycle
+matrix_multiply.c:40:5: note: mark relevant 3, live 0: matrix_r_I_I_lsm.86_9 = PHI <matrix_r_I_I_lsm.86_42(12), _38(26)>
+matrix_multiply.c:40:5: note: vect_is_simple_use: operand _37
+matrix_multiply.c:40:5: note: def_stmt: _37 = _35 * _36;
+matrix_multiply.c:40:5: note: type of def: internal
+matrix_multiply.c:40:5: note: mark relevant 3, live 0: _37 = _35 * _36;
+matrix_multiply.c:40:5: note: worklist: examine stmt: _37 = _35 * _36;
+matrix_multiply.c:40:5: note: vect_is_simple_use: operand _35
+matrix_multiply.c:40:5: note: def_stmt: _35 = matrix_a[i_104][k_106];
+matrix_multiply.c:40:5: note: type of def: internal
+matrix_multiply.c:40:5: note: mark relevant 3, live 0: _35 = matrix_a[i_104][k_106];
+matrix_multiply.c:40:5: note: vect_is_simple_use: operand _36
+matrix_multiply.c:40:5: note: def_stmt: _36 = matrix_b[k_106][j_105];
+matrix_multiply.c:40:5: note: type of def: internal
+matrix_multiply.c:40:5: note: mark relevant 3, live 0: _36 = matrix_b[k_106][j_105];
+matrix_multiply.c:40:5: note: worklist: examine stmt: _36 = matrix_b[k_106][j_105];
+matrix_multiply.c:40:5: note: worklist: examine stmt: _35 = matrix_a[i_104][k_106];
+matrix_multiply.c:40:5: note: worklist: examine stmt: matrix_r_I_I_lsm.86_9 = PHI <matrix_r_I_I_lsm.86_42(12), _38(26)>
+matrix_multiply.c:40:5: note: vect_is_simple_use: operand matrix_r_I_I_lsm.86_42
+matrix_multiply.c:40:5: note: def_stmt: matrix_r_I_I_lsm.86_42 = matrix_r[i_104][j_105];
+matrix_multiply.c:40:5: note: type of def: internal
+matrix_multiply.c:40:5: note: outer-loop def-stmt defining inner-loop stmt.
+matrix_multiply.c:40:5: note: mark relevant 5, live 0: matrix_r_I_I_lsm.86_42 = matrix_r[i_104][j_105];
+matrix_multiply.c:40:5: note: vect_is_simple_use: operand _38
+matrix_multiply.c:40:5: note: def_stmt: _38 = matrix_r_I_I_lsm.86_9 + _37;
+matrix_multiply.c:40:5: note: type of def: nested cycle
+matrix_multiply.c:40:5: note: mark relevant 3, live 0: _38 = matrix_r_I_I_lsm.86_9 + _37;
+matrix_multiply.c:40:5: note: already marked relevant/live.
+matrix_multiply.c:40:5: note: worklist: examine stmt: matrix_r_I_I_lsm.86_42 = matrix_r[i_104][j_105];
+matrix_multiply.c:40:5: note: === vect_analyze_data_ref_dependences ===
+matrix_multiply.c:40:5: note: dependence distance  = 0.
+matrix_multiply.c:40:5: note: dependence distance == 0 between matrix_r[i_104][j_105] and matrix_r[i_104][j_105]
+matrix_multiply.c:40:5: note: === vect_determine_vectorization_factor ===
+matrix_multiply.c:40:5: note: ==> examining phi: j_105 = PHI <0(14), j_40(25)>
+matrix_multiply.c:40:5: note: ==> examining phi: .MEM_115 = PHI <.MEM_116(14), .MEM_43(25)>
+matrix_multiply.c:40:5: note: ==> examining phi: ivtmp_127 = PHI <1000(14), ivtmp_123(25)>
+matrix_multiply.c:40:5: note: ==> examining statement: matrix_r_I_I_lsm.86_42 = matrix_r[i_104][j_105];
+matrix_multiply.c:40:5: note: get vectype for scalar type:  double
+matrix_multiply.c:40:5: note: vectype: vector(2) double
+matrix_multiply.c:40:5: note: nunits = 2
+matrix_multiply.c:40:5: note: ==> examining phi: k_106 = PHI <0(12), k_39(26)>
+matrix_multiply.c:40:5: note: ==> examining phi: .MEM_114 = PHI <.MEM_115(12), .MEM_114(26)>
+matrix_multiply.c:40:5: note: ==> examining phi: matrix_r_I_I_lsm.86_9 = PHI <matrix_r_I_I_lsm.86_42(12), _38(26)>
+matrix_multiply.c:40:5: note: get vectype for scalar type:  double
+matrix_multiply.c:40:5: note: vectype: vector(2) double
+matrix_multiply.c:40:5: note: nunits = 2
+matrix_multiply.c:40:5: note: ==> examining phi: ivtmp_129 = PHI <1000(12), ivtmp_128(26)>
+matrix_multiply.c:40:5: note: ==> examining statement: _35 = matrix_a[i_104][k_106];
+matrix_multiply.c:40:5: note: get vectype for scalar type:  double
+matrix_multiply.c:40:5: note: vectype: vector(2) double
+matrix_multiply.c:40:5: note: nunits = 2
+matrix_multiply.c:40:5: note: ==> examining statement: _36 = matrix_b[k_106][j_105];
+matrix_multiply.c:40:5: note: get vectype for scalar type:  double
+matrix_multiply.c:40:5: note: vectype: vector(2) double
+matrix_multiply.c:40:5: note: nunits = 2
+matrix_multiply.c:40:5: note: ==> examining statement: _37 = _35 * _36;
+matrix_multiply.c:40:5: note: get vectype for scalar type:  double
+matrix_multiply.c:40:5: note: vectype: vector(2) double
+matrix_multiply.c:40:5: note: get vectype for scalar type:  double
+matrix_multiply.c:40:5: note: vectype: vector(2) double
+matrix_multiply.c:40:5: note: nunits = 2
+matrix_multiply.c:40:5: note: ==> examining statement: _38 = matrix_r_I_I_lsm.86_9 + _37;
+matrix_multiply.c:40:5: note: get vectype for scalar type:  double
+matrix_multiply.c:40:5: note: vectype: vector(2) double
+matrix_multiply.c:40:5: note: get vectype for scalar type:  double
+matrix_multiply.c:40:5: note: vectype: vector(2) double
+matrix_multiply.c:40:5: note: nunits = 2
+matrix_multiply.c:40:5: note: ==> examining statement: k_39 = k_106 + 1;
+matrix_multiply.c:40:5: note: skip.
+matrix_multiply.c:40:5: note: ==> examining statement: ivtmp_128 = ivtmp_129 - 1;
+matrix_multiply.c:40:5: note: skip.
+matrix_multiply.c:40:5: note: ==> examining statement: if (ivtmp_128 != 0)
+matrix_multiply.c:40:5: note: skip.
+matrix_multiply.c:40:5: note: ==> examining phi: _142 = PHI <_38(10)>
+matrix_multiply.c:40:5: note: get vectype for scalar type:  double
+matrix_multiply.c:40:5: note: vectype: vector(2) double
+matrix_multiply.c:40:5: note: nunits = 2
+matrix_multiply.c:40:5: note: ==> examining statement: matrix_r[i_104][j_105] = _142;
+matrix_multiply.c:40:5: note: get vectype for scalar type:  double
+matrix_multiply.c:40:5: note: vectype: vector(2) double
+matrix_multiply.c:40:5: note: nunits = 2
+matrix_multiply.c:40:5: note: ==> examining statement: j_40 = j_105 + 1;
+matrix_multiply.c:40:5: note: skip.
+matrix_multiply.c:40:5: note: ==> examining statement: ivtmp_123 = ivtmp_127 - 1;
+matrix_multiply.c:40:5: note: skip.
+matrix_multiply.c:40:5: note: ==> examining statement: if (ivtmp_123 != 0)
+matrix_multiply.c:40:5: note: skip.
+matrix_multiply.c:40:5: note: vectorization factor = 2
+matrix_multiply.c:40:5: note: === vect_analyze_slp ===
+matrix_multiply.c:40:5: note: === vect_make_slp_decision ===
+matrix_multiply.c:40:5: note: vectorization_factor = 2, niters = 1000
+matrix_multiply.c:40:5: note: === vect_analyze_data_refs_alignment ===
+matrix_multiply.c:40:5: note: accesses have the same alignment: matrix_r[i_104][j_105] and matrix_r[i_104][j_105]
+matrix_multiply.c:40:5: note: recording new base alignment for &matrix_r
+matrix_multiply.c:40:5: note:   alignment:    16
+matrix_multiply.c:40:5: note:   misalignment: 0
+matrix_multiply.c:40:5: note:   based on:     matrix_r_I_I_lsm.86_42 = matrix_r[i_104][j_105];
+matrix_multiply.c:40:5: note: recording new base alignment for &matrix_a
+matrix_multiply.c:40:5: note:   alignment:    16
+matrix_multiply.c:40:5: note:   misalignment: 0
+matrix_multiply.c:40:5: note:   based on:     _35 = matrix_a[i_104][k_106];
+matrix_multiply.c:40:5: note: recording new base alignment for &matrix_a + (sizetype) i_104 * 8000
+matrix_multiply.c:40:5: note:   alignment:    16
+matrix_multiply.c:40:5: note:   misalignment: 0
+matrix_multiply.c:40:5: note:   based on:     _35 = matrix_a[i_104][k_106];
+matrix_multiply.c:40:5: note: recording new base alignment for &matrix_b
+matrix_multiply.c:40:5: note:   alignment:    16
+matrix_multiply.c:40:5: note:   misalignment: 0
+matrix_multiply.c:40:5: note:   based on:     _36 = matrix_b[k_106][j_105];
+matrix_multiply.c:40:5: note: vect_compute_data_ref_alignment:
+matrix_multiply.c:40:5: note: misalign = 0 bytes of ref matrix_r[i_104][j_105]
+matrix_multiply.c:40:5: note: vect_compute_data_ref_alignment:
+matrix_multiply.c:40:5: note: inner step doesn't divide the vector alignment.
+matrix_multiply.c:40:5: note: Unknown alignment for access: matrix_a[i_104][k_106]
+matrix_multiply.c:40:5: note: vect_compute_data_ref_alignment:
+matrix_multiply.c:40:5: note: inner step divides the vector alignment.
+matrix_multiply.c:40:5: note: misalign = 0 bytes of ref matrix_b[k_106][j_105]
+matrix_multiply.c:40:5: note: vect_compute_data_ref_alignment:
+matrix_multiply.c:40:5: note: misalign = 0 bytes of ref matrix_r[i_104][j_105]
+matrix_multiply.c:40:5: note: === vect_prune_runtime_alias_test_list ===
+matrix_multiply.c:40:5: note: === vect_enhance_data_refs_alignment ===
+matrix_multiply.c:40:5: note: Unknown misalignment, naturally aligned
+matrix_multiply.c:40:5: note: vect_can_advance_ivs_p:
+matrix_multiply.c:40:5: note: Analyze phi: j_105 = PHI <0(14), j_40(25)>
+matrix_multiply.c:40:5: note: Analyze phi: .MEM_115 = PHI <.MEM_116(14), .MEM_43(25)>
+matrix_multiply.c:40:5: note: reduc or virtual phi. skip.
+matrix_multiply.c:40:5: note: Analyze phi: ivtmp_127 = PHI <1000(14), ivtmp_123(25)>
+matrix_multiply.c:40:5: note: Vectorizing an unaligned access.
+matrix_multiply.c:40:5: note: === vect_analyze_loop_operations ===
+matrix_multiply.c:40:5: note: examining phi: j_105 = PHI <0(14), j_40(25)>
+matrix_multiply.c:40:5: note: examining phi: .MEM_115 = PHI <.MEM_116(14), .MEM_43(25)>
+matrix_multiply.c:40:5: note: examining phi: ivtmp_127 = PHI <1000(14), ivtmp_123(25)>
+matrix_multiply.c:40:5: note: ==> examining statement: matrix_r_I_I_lsm.86_42 = matrix_r[i_104][j_105];
+matrix_multiply.c:40:5: note: num. args = 4 (not unary/binary/ternary op).
+matrix_multiply.c:40:5: note: vect_is_simple_use: operand matrix_r[i_104][j_105]
+matrix_multiply.c:40:5: note: not ssa-name.
+matrix_multiply.c:40:5: note: use not simple.
+matrix_multiply.c:40:5: note: can't use a fully-masked loop because the target doesn't have the appropriate masked load or store.
+matrix_multiply.c:40:5: note: vect_model_load_cost: aligned.
+matrix_multiply.c:40:5: note: vect_model_load_cost: inside_cost = 12, prologue_cost = 0 .
+matrix_multiply.c:40:5: note: examining phi: k_106 = PHI <0(12), k_39(26)>
+matrix_multiply.c:40:5: note: examining phi: .MEM_114 = PHI <.MEM_115(12), .MEM_114(26)>
+matrix_multiply.c:40:5: note: examining phi: matrix_r_I_I_lsm.86_9 = PHI <matrix_r_I_I_lsm.86_42(12), _38(26)>
+matrix_multiply.c:40:5: note: examining phi: ivtmp_129 = PHI <1000(12), ivtmp_128(26)>
+matrix_multiply.c:40:5: note: ==> examining statement: _35 = matrix_a[i_104][k_106];
+matrix_multiply.c:40:5: note: num. args = 4 (not unary/binary/ternary op).
+matrix_multiply.c:40:5: note: vect_is_simple_use: operand matrix_a[i_104][k_106]
+matrix_multiply.c:40:5: note: not ssa-name.
+matrix_multiply.c:40:5: note: use not simple.
+matrix_multiply.c:40:5: note: vect_model_load_cost: unaligned supported by hardware.
+matrix_multiply.c:40:5: note: vect_model_load_cost: inside_cost = 600, prologue_cost = 0 .
+matrix_multiply.c:40:5: note: ==> examining statement: _36 = matrix_b[k_106][j_105];
+matrix_multiply.c:40:5: note: num. args = 4 (not unary/binary/ternary op).
+matrix_multiply.c:40:5: note: vect_is_simple_use: operand matrix_b[k_106][j_105]
+matrix_multiply.c:40:5: note: not ssa-name.
+matrix_multiply.c:40:5: note: use not simple.
+matrix_multiply.c:40:5: note: vect_model_load_cost: aligned.
+matrix_multiply.c:40:5: note: vect_model_load_cost: inside_cost = 600, prologue_cost = 0 .
+matrix_multiply.c:40:5: note: ==> examining statement: _37 = _35 * _36;
+matrix_multiply.c:40:5: note: vect_is_simple_use: operand _35
+matrix_multiply.c:40:5: note: def_stmt: _35 = matrix_a[i_104][k_106];
+matrix_multiply.c:40:5: note: type of def: internal
+matrix_multiply.c:40:5: note: vect_is_simple_use: operand _36
+matrix_multiply.c:40:5: note: def_stmt: _36 = matrix_b[k_106][j_105];
+matrix_multiply.c:40:5: note: type of def: internal
+matrix_multiply.c:40:5: note: === vectorizable_operation ===
+matrix_multiply.c:40:5: note: vect_model_simple_cost: inside_cost = 1000, prologue_cost = 0 .
+matrix_multiply.c:40:5: note: ==> examining statement: _38 = matrix_r_I_I_lsm.86_9 + _37;
+matrix_multiply.c:40:5: note: vect_is_simple_use: operand matrix_r_I_I_lsm.86_9
+matrix_multiply.c:40:5: note: def_stmt: matrix_r_I_I_lsm.86_9 = PHI <matrix_r_I_I_lsm.86_42(12), _38(26)>
+matrix_multiply.c:40:5: note: type of def: nested cycle
+matrix_multiply.c:40:5: note: vect_is_simple_use: operand _37
+matrix_multiply.c:40:5: note: def_stmt: _37 = _35 * _36;
+matrix_multiply.c:40:5: note: type of def: internal
+matrix_multiply.c:40:5: note: reduc op not supported by target.
+vect_model_reduction_cost: inside_cost = 600, prologue_cost = 4, epilogue_cost = 0 .
+matrix_multiply.c:40:5: note: ==> examining statement: k_39 = k_106 + 1;
+matrix_multiply.c:40:5: note: irrelevant.
+matrix_multiply.c:40:5: note: ==> examining statement: ivtmp_128 = ivtmp_129 - 1;
+matrix_multiply.c:40:5: note: irrelevant.
+matrix_multiply.c:40:5: note: ==> examining statement: if (ivtmp_128 != 0)
+matrix_multiply.c:40:5: note: irrelevant.
+matrix_multiply.c:40:5: note: examining phi: _142 = PHI <_38(10)>
+matrix_multiply.c:40:5: note: ==> examining statement: matrix_r[i_104][j_105] = _142;
+matrix_multiply.c:40:5: note: vect_is_simple_use: operand _142
+matrix_multiply.c:40:5: note: def_stmt: _142 = PHI <_38(10)>
+matrix_multiply.c:40:5: note: type of def: internal
+matrix_multiply.c:40:5: note: vect_model_store_cost: aligned.
+matrix_multiply.c:40:5: note: vect_model_store_cost: inside_cost = 12, prologue_cost = 0 .
+matrix_multiply.c:40:5: note: ==> examining statement: j_40 = j_105 + 1;
+matrix_multiply.c:40:5: note: irrelevant.
+matrix_multiply.c:40:5: note: ==> examining statement: ivtmp_123 = ivtmp_127 - 1;
+matrix_multiply.c:40:5: note: irrelevant.
+matrix_multiply.c:40:5: note: ==> examining statement: if (ivtmp_123 != 0)
+matrix_multiply.c:40:5: note: irrelevant.
+matrix_multiply.c:40:5: note: not using a fully-masked loop.
+matrix_multiply.c:40:5: note: Cost model analysis: 
+  Vector inside of loop cost: 2824
+  Vector prologue cost: 4
+  Vector epilogue cost: 0
+  Scalar iteration cost: 120024
+  Scalar outside cost: 0
+  Vector outside cost: 4
+  prologue iterations: 0
+  epilogue iterations: 0
+  Calculated minimum iters for profitability: 1
+matrix_multiply.c:40:5: note:   Runtime profitability threshold = 2
+matrix_multiply.c:40:5: note:   Static estimate profitability threshold = 2
+matrix_multiply.c:40:5: note: loop vectorized
+matrix_multiply.c:40:5: note: === vec_transform_loop ===
+matrix_multiply.c:40:5: note: ------>vectorizing phi: j_105 = PHI <j_40(25), 0(31)>
+matrix_multiply.c:40:5: note: ------>vectorizing phi: .MEM_115 = PHI <.MEM_43(25), .MEM_116(31)>
+matrix_multiply.c:40:5: note: ------>vectorizing phi: ivtmp_127 = PHI <ivtmp_123(25), 1000(31)>
+matrix_multiply.c:40:5: note: ------>vectorizing statement: matrix_r_I_I_lsm.86_42 = matrix_r[i_104][j_105];
+matrix_multiply.c:40:5: note: transform statement.
+matrix_multiply.c:40:5: note: transform load. ncopies = 1
+matrix_multiply.c:40:5: note: create vector_type-pointer variable to type: vector(2) double  vectorizing an array ref: matrix_r
+matrix_multiply.c:40:5: note: created vectp_matrix_r.94_75
+matrix_multiply.c:40:5: note: add new stmt: vect_matrix_r_I_I_lsm.95_63 = MEM[(double *)vectp_matrix_r.93_72];
+matrix_multiply.c:40:5: note: ------>vectorizing phi: k_106 = PHI <0(12), k_39(26)>
+matrix_multiply.c:40:5: note: ------>vectorizing phi: .MEM_114 = PHI <.MEM_115(12), .MEM_114(26)>
+matrix_multiply.c:40:5: note: ------>vectorizing phi: matrix_r_I_I_lsm.86_9 = PHI <matrix_r_I_I_lsm.86_42(12), _38(26)>
+matrix_multiply.c:40:5: note: transform phi.
+matrix_multiply.c:40:5: note: ------>vectorizing phi: ivtmp_129 = PHI <1000(12), ivtmp_128(26)>
+matrix_multiply.c:40:5: note: ------>vectorizing phi: vect__38.96_62 = PHI <(12), (26)>
+matrix_multiply.c:40:5: note: ------>vectorizing statement: _35 = matrix_a[i_104][k_106];
+matrix_multiply.c:40:5: note: transform statement.
+matrix_multiply.c:40:5: note: transform load. ncopies = 1
+matrix_multiply.c:40:5: note: create vector_type-pointer variable to type: vector(2) double  vectorizing an array ref: matrix_a
+matrix_multiply.c:40:5: note: created vectp.98_61
+matrix_multiply.c:40:5: note: add new stmt: vect__35.99_31 = MEM[(double *)vectp_matrix_a.97_34];
+matrix_multiply.c:40:5: note: add new stmt: vect_cst__23 = {_35, _35};
+matrix_multiply.c:40:5: note: created new init_stmt: vect_cst__23 = {_35, _35};
+matrix_multiply.c:40:5: note: Record the vdef for outer-loop vectorization.
+matrix_multiply.c:40:5: note: ------>vectorizing statement: vect_cst__23 = {_35, _35};
+matrix_multiply.c:40:5: note: ------>vectorizing statement: _36 = matrix_b[k_106][j_105];
+matrix_multiply.c:40:5: note: transform statement.
+matrix_multiply.c:40:5: note: transform load. ncopies = 1
+matrix_multiply.c:40:5: note: create vector_type-pointer variable to type: vector(2) double  vectorizing an array ref: matrix_b
+matrix_multiply.c:40:5: note: created &matrix_b
+matrix_multiply.c:40:5: note: add new stmt: vect__36.102_139 = MEM[(double *)vectp_matrix_b.100_4];
+matrix_multiply.c:40:5: note: Record the vdef for outer-loop vectorization.
+matrix_multiply.c:40:5: note: ------>vectorizing statement: _37 = _35 * _36;
+matrix_multiply.c:40:5: note: transform statement.
+matrix_multiply.c:40:5: note: vect_is_simple_use: operand _35
+matrix_multiply.c:40:5: note: def_stmt: _35 = matrix_a[i_104][k_106];
+matrix_multiply.c:40:5: note: type of def: internal
+matrix_multiply.c:40:5: note: vect_is_simple_use: operand _36
+matrix_multiply.c:40:5: note: def_stmt: _36 = matrix_b[k_106][j_105];
+matrix_multiply.c:40:5: note: type of def: internal
+matrix_multiply.c:40:5: note: transform binary/unary operation.
+matrix_multiply.c:40:5: note: vect_get_vec_def_for_operand: _35
+matrix_multiply.c:40:5: note: vect_is_simple_use: operand _35
+matrix_multiply.c:40:5: note: def_stmt: _35 = matrix_a[i_104][k_106];
+matrix_multiply.c:40:5: note: type of def: internal
+matrix_multiply.c:40:5: note:   def_stmt =  _35 = matrix_a[i_104][k_106];
+matrix_multiply.c:40:5: note: vect_get_vec_def_for_operand: _36
+matrix_multiply.c:40:5: note: vect_is_simple_use: operand _36
+matrix_multiply.c:40:5: note: def_stmt: _36 = matrix_b[k_106][j_105];
+matrix_multiply.c:40:5: note: type of def: internal
+matrix_multiply.c:40:5: note:   def_stmt =  _36 = matrix_b[k_106][j_105];
+matrix_multiply.c:40:5: note: add new stmt: vect__37.103_134 = vect_cst__23 * vect__36.102_139;
+matrix_multiply.c:40:5: note: Record the vdef for outer-loop vectorization.
+matrix_multiply.c:40:5: note: ------>vectorizing statement: _38 = matrix_r_I_I_lsm.86_9 + _37;
+matrix_multiply.c:40:5: note: transform statement.
+matrix_multiply.c:40:5: note: vect_is_simple_use: operand matrix_r_I_I_lsm.86_9
+matrix_multiply.c:40:5: note: def_stmt: matrix_r_I_I_lsm.86_9 = PHI <matrix_r_I_I_lsm.86_42(12), _38(26)>
+matrix_multiply.c:40:5: note: type of def: nested cycle
+matrix_multiply.c:40:5: note: vect_is_simple_use: operand _37
+matrix_multiply.c:40:5: note: def_stmt: _37 = _35 * _36;
+matrix_multiply.c:40:5: note: type of def: internal
+matrix_multiply.c:40:5: note: reduc op not supported by target.
+matrix_multiply.c:40:5: note: transform reduction.
+matrix_multiply.c:40:5: note: vect_get_vec_def_for_operand: matrix_r_I_I_lsm.86_9
+matrix_multiply.c:40:5: note: vect_is_simple_use: operand matrix_r_I_I_lsm.86_9
+matrix_multiply.c:40:5: note: def_stmt: matrix_r_I_I_lsm.86_9 = PHI <matrix_r_I_I_lsm.86_42(12), _38(26)>
+matrix_multiply.c:40:5: note: type of def: nested cycle
+matrix_multiply.c:40:5: note:   def_stmt =  matrix_r_I_I_lsm.86_9 = PHI <matrix_r_I_I_lsm.86_42(12), _38(26)>
+matrix_multiply.c:40:5: note: vect_get_vec_def_for_operand: _37
+matrix_multiply.c:40:5: note: vect_is_simple_use: operand _37
+matrix_multiply.c:40:5: note: def_stmt: _37 = _35 * _36;
+matrix_multiply.c:40:5: note: type of def: internal
+matrix_multiply.c:40:5: note:   def_stmt =  _37 = _35 * _36;
+matrix_multiply.c:40:5: note: add new stmt: vect__38.104_133 = vect__38.96_62 + vect__37.103_134;
+matrix_multiply.c:40:5: note: vect_is_simple_use: operand matrix_r_I_I_lsm.86_42
+matrix_multiply.c:40:5: note: def_stmt: matrix_r_I_I_lsm.86_42 = matrix_r[i_104][j_105];
+matrix_multiply.c:40:5: note: type of def: internal
+matrix_multiply.c:40:5: note: vect_get_vec_def_for_operand: matrix_r_I_I_lsm.86_42
+matrix_multiply.c:40:5: note: vect_is_simple_use: operand matrix_r_I_I_lsm.86_42
+matrix_multiply.c:40:5: note: def_stmt: matrix_r_I_I_lsm.86_42 = matrix_r[i_104][j_105];
+matrix_multiply.c:40:5: note: type of def: internal
+matrix_multiply.c:40:5: note:   def_stmt =  matrix_r_I_I_lsm.86_42 = matrix_r[i_104][j_105];
+matrix_multiply.c:40:5: note: transform reduction: created def-use cycle: vect__38.96_62 = PHI <vect_matrix_r_I_I_lsm.95_63(12), vect__38.104_133(26)>
+vect__38.104_133 = vect__38.96_62 + vect__37.103_134;
+matrix_multiply.c:40:5: note: ------>vectorizing statement: k_39 = k_106 + 1;
+matrix_multiply.c:40:5: note: ------>vectorizing statement: ivtmp_128 = ivtmp_129 - 1;
+matrix_multiply.c:40:5: note: ------>vectorizing statement: vectp_matrix_a.97_32 = vectp_matrix_a.97_34 + 8;
+matrix_multiply.c:40:5: note: ------>vectorizing statement: vectp_matrix_b.100_140 = vectp_matrix_b.100_4 + 8000;
+matrix_multiply.c:40:5: note: ------>vectorizing statement: if (ivtmp_128 != 0)
+matrix_multiply.c:40:5: note: ------>vectorizing phi: _142 = PHI <_38(10)>
+matrix_multiply.c:40:5: note: ------>vectorizing phi: vect__38.104_132 = PHI <vect__38.104_133(10)>
+matrix_multiply.c:40:5: note: ------>vectorizing statement: matrix_r[i_104][j_105] = _142;
+matrix_multiply.c:40:5: note: transform statement.
+matrix_multiply.c:40:5: note: vect_is_simple_use: operand _142
+matrix_multiply.c:40:5: note: def_stmt: _142 = PHI <_38(10)>
+matrix_multiply.c:40:5: note: type of def: internal
+matrix_multiply.c:40:5: note: transform store. ncopies = 1
+matrix_multiply.c:40:5: note: vect_get_vec_def_for_operand: _142
+matrix_multiply.c:40:5: note: vect_is_simple_use: operand _142
+matrix_multiply.c:40:5: note: def_stmt: _142 = PHI <_38(10)>
+matrix_multiply.c:40:5: note: type of def: internal
+matrix_multiply.c:40:5: note:   def_stmt =  _142 = PHI <_38(10)>
+matrix_multiply.c:40:5: note: create vector_type-pointer variable to type: vector(2) double  vectorizing an array ref: matrix_r
+matrix_multiply.c:40:5: note: created vectp_matrix_r.107_131
+matrix_multiply.c:40:5: note: add new stmt: MEM[(double *)vectp_matrix_r.106_124] = vect__38.104_132;
+matrix_multiply.c:40:5: note: ------>vectorizing statement: j_40 = j_105 + 1;
+matrix_multiply.c:40:5: note: ------>vectorizing statement: ivtmp_123 = ivtmp_127 - 1;
+matrix_multiply.c:40:5: note: ------>vectorizing statement: vectp_matrix_r.93_68 = vectp_matrix_r.93_72 + 16;
+matrix_multiply.c:40:5: note: ------>vectorizing statement: vectp_matrix_a.97_57 = vectp_matrix_a.97_58 + 0;
+matrix_multiply.c:40:5: note: ------>vectorizing statement: vectp_matrix_b.100_20 = vectp_matrix_b.100_21 + 16;
+matrix_multiply.c:40:5: note: ------>vectorizing statement: vectp_matrix_r.106_22 = vectp_matrix_r.106_124 + 16;
+matrix_multiply.c:40:5: note: ------>vectorizing statement: if (ivtmp_123 != 0)
+matrix_multiply.c:40:5: note: New loop exit condition: if (ivtmp_33 < 500)
+matrix_multiply.c:40:5: note: LOOP VECTORIZED
+matrix_multiply.c:40:5: note: OUTER LOOP VECTORIZED
+
+
+Analyzing loop at matrix_multiply.c:41
+matrix_multiply.c:41:7: note: ===== analyze_loop_nest =====
+matrix_multiply.c:41:7: note: outer-loop already vectorized.
+
+Analyzing loop at matrix_multiply.c:39
+matrix_multiply.c:39:3: note: ===== analyze_loop_nest =====
+matrix_multiply.c:39:3: note: === vect_analyze_loop_form ===
+matrix_multiply.c:39:3: note: not vectorized: multiple nested loops.
+matrix_multiply.c:39:3: note: bad loop form.
+
+Analyzing loop at matrix_multiply.c:40
+matrix_multiply.c:40:5: note: ===== analyze_loop_nest =====
+matrix_multiply.c:40:5: note: === vect_analyze_loop_form ===
+matrix_multiply.c:40:5: note: === vect_analyze_loop_form ===
+matrix_multiply.c:40:5: note: === get_loop_niters ===
+matrix_multiply.c:40:5: note: Considering outer-loop vectorization.
+matrix_multiply.c:40:5: note: === get_loop_niters ===
+matrix_multiply.c:40:5: note: === vect_analyze_data_refs ===
+matrix_multiply.c:40:5: note: got vectype for stmt: matrix_r_I_I_lsm.87_82 = matrix_r[i_101][j_102];
+vector(2) double
+matrix_multiply.c:40:5: note: analyze in outer loop: *(&matrix_a + (sizetype) i_101 * 8000)
+matrix_multiply.c:40:5: note: 	outer base_address: &matrix_a + (sizetype) i_101 * 8000
+	outer offset from base address: 0
+	outer constant offset from base address: 0
+	outer step: 0
+	outer base alignment: 16
+
+	outer base misalignment: 0
+
+	outer offset alignment: 128
+
+	outer step alignment: 128
+matrix_multiply.c:40:5: note: got vectype for stmt: _24 = matrix_a[i_101][k_103];
+vector(2) double
+matrix_multiply.c:40:5: note: analyze in outer loop: *(&matrix_b + (sizetype) j_102 * 8)
+matrix_multiply.c:40:5: note: 	outer base_address: &matrix_b
+	outer offset from base address: 0
+	outer constant offset from base address: 0
+	outer step: 8
+	outer base alignment: 16
+
+	outer base misalignment: 0
+
+	outer offset alignment: 128
+
+	outer step alignment: 8
+matrix_multiply.c:40:5: note: got vectype for stmt: _25 = matrix_b[k_103][j_102];
+vector(2) double
+matrix_multiply.c:40:5: note: got vectype for stmt: matrix_r[i_101][j_102] = _143;
+vector(2) double
+matrix_multiply.c:40:5: note: === vect_analyze_scalar_cycles ===
+matrix_multiply.c:40:5: note: Analyze phi: j_102 = PHI <0(7), j_29(28)>
+matrix_multiply.c:40:5: note: Access function of PHI: {0, +, 1}_3
+matrix_multiply.c:40:5: note: step: 1,  init: 0
+matrix_multiply.c:40:5: note: Detected induction.
+matrix_multiply.c:40:5: note: Analyze phi: .MEM_112 = PHI <.MEM_113(7), .MEM_50(28)>
+matrix_multiply.c:40:5: note: Analyze phi: ivtmp_98 = PHI <1000(7), ivtmp_97(28)>
+matrix_multiply.c:40:5: note: Access function of PHI: {1000, +, 4294967295}_3
+matrix_multiply.c:40:5: note: step: 4294967295,  init: 1000
+matrix_multiply.c:40:5: note: Detected induction.
+matrix_multiply.c:40:5: note: === vect_analyze_scalar_cycles ===
+matrix_multiply.c:40:5: note: Analyze phi: k_103 = PHI <0(5), k_28(29)>
+matrix_multiply.c:40:5: note: Access function of PHI: {0, +, 1}_4
+matrix_multiply.c:40:5: note: step: 1,  init: 0
+matrix_multiply.c:40:5: note: Detected induction.
+matrix_multiply.c:40:5: note: Analyze phi: .MEM_111 = PHI <.MEM_112(5), .MEM_111(29)>
+matrix_multiply.c:40:5: note: Analyze phi: matrix_r_I_I_lsm.87_67 = PHI <matrix_r_I_I_lsm.87_82(5), _27(29)>
+matrix_multiply.c:40:5: note: Access function of PHI: {matrix_r_I_I_lsm.87_82, +, _26}_4
+matrix_multiply.c:40:5: note: step: _26,  init: matrix_r_I_I_lsm.87_82
+matrix_multiply.c:40:5: note: step unknown.
+matrix_multiply.c:40:5: note: Analyze phi: ivtmp_118 = PHI <1000(5), ivtmp_117(29)>
+matrix_multiply.c:40:5: note: Access function of PHI: {1000, +, 4294967295}_4
+matrix_multiply.c:40:5: note: step: 4294967295,  init: 1000
+matrix_multiply.c:40:5: note: Detected induction.
+matrix_multiply.c:40:5: note: Analyze phi: matrix_r_I_I_lsm.87_67 = PHI <matrix_r_I_I_lsm.87_82(5), _27(29)>
+matrix_multiply.c:40:5: note: detected reduction: _27 = _26 + matrix_r_I_I_lsm.87_67;
+matrix_multiply.c:40:5: note: Detected vectorizable nested cycle.
+matrix_multiply.c:40:5: note: === vect_pattern_recog ===
+matrix_multiply.c:40:5: note: vect_is_simple_use: operand _24
+matrix_multiply.c:40:5: note: def_stmt: _24 = matrix_a[i_101][k_103];
+matrix_multiply.c:40:5: note: type of def: internal
+matrix_multiply.c:40:5: note: === vect_analyze_data_ref_accesses ===
+matrix_multiply.c:40:5: note: zero step in outer loop.
+matrix_multiply.c:40:5: note: === vect_mark_stmts_to_be_vectorized ===
+matrix_multiply.c:40:5: note: init: phi relevant? j_102 = PHI <0(7), j_29(28)>
+matrix_multiply.c:40:5: note: init: phi relevant? .MEM_112 = PHI <.MEM_113(7), .MEM_50(28)>
+matrix_multiply.c:40:5: note: init: phi relevant? ivtmp_98 = PHI <1000(7), ivtmp_97(28)>
+matrix_multiply.c:40:5: note: init: stmt relevant? matrix_r_I_I_lsm.87_82 = matrix_r[i_101][j_102];
+matrix_multiply.c:40:5: note: init: phi relevant? k_103 = PHI <0(5), k_28(29)>
+matrix_multiply.c:40:5: note: init: phi relevant? .MEM_111 = PHI <.MEM_112(5), .MEM_111(29)>
+matrix_multiply.c:40:5: note: init: phi relevant? matrix_r_I_I_lsm.87_67 = PHI <matrix_r_I_I_lsm.87_82(5), _27(29)>
+matrix_multiply.c:40:5: note: init: phi relevant? ivtmp_118 = PHI <1000(5), ivtmp_117(29)>
+matrix_multiply.c:40:5: note: init: stmt relevant? _24 = matrix_a[i_101][k_103];
+matrix_multiply.c:40:5: note: init: stmt relevant? _25 = matrix_b[k_103][j_102];
+matrix_multiply.c:40:5: note: init: stmt relevant? _26 = _24 * _25;
+matrix_multiply.c:40:5: note: init: stmt relevant? _27 = _26 + matrix_r_I_I_lsm.87_67;
+matrix_multiply.c:40:5: note: init: stmt relevant? k_28 = k_103 + 1;
+matrix_multiply.c:40:5: note: init: stmt relevant? ivtmp_117 = ivtmp_118 - 1;
+matrix_multiply.c:40:5: note: init: stmt relevant? if (ivtmp_117 != 0)
+matrix_multiply.c:40:5: note: init: phi relevant? _143 = PHI <_27(3)>
+matrix_multiply.c:40:5: note: init: stmt relevant? matrix_r[i_101][j_102] = _143;
+matrix_multiply.c:40:5: note: vec_stmt_relevant_p: stmt has vdefs.
+matrix_multiply.c:40:5: note: mark relevant 5, live 0: matrix_r[i_101][j_102] = _143;
+matrix_multiply.c:40:5: note: init: stmt relevant? j_29 = j_102 + 1;
+matrix_multiply.c:40:5: note: init: stmt relevant? ivtmp_97 = ivtmp_98 - 1;
+matrix_multiply.c:40:5: note: init: stmt relevant? if (ivtmp_97 != 0)
+matrix_multiply.c:40:5: note: worklist: examine stmt: matrix_r[i_101][j_102] = _143;
+matrix_multiply.c:40:5: note: vect_is_simple_use: operand _143
+matrix_multiply.c:40:5: note: def_stmt: _143 = PHI <_27(3)>
+matrix_multiply.c:40:5: note: type of def: internal
+matrix_multiply.c:40:5: note: mark relevant 5, live 0: _143 = PHI <_27(3)>
+matrix_multiply.c:40:5: note: worklist: examine stmt: _143 = PHI <_27(3)>
+matrix_multiply.c:40:5: note: vect_is_simple_use: operand _27
+matrix_multiply.c:40:5: note: def_stmt: _27 = _26 + matrix_r_I_I_lsm.87_67;
+matrix_multiply.c:40:5: note: type of def: nested cycle
+matrix_multiply.c:40:5: note: inner-loop def-stmt defining outer-loop stmt.
+matrix_multiply.c:40:5: note: mark relevant 3, live 0: _27 = _26 + matrix_r_I_I_lsm.87_67;
+matrix_multiply.c:40:5: note: worklist: examine stmt: _27 = _26 + matrix_r_I_I_lsm.87_67;
+matrix_multiply.c:40:5: note: vect_is_simple_use: operand _26
+matrix_multiply.c:40:5: note: def_stmt: _26 = _24 * _25;
+matrix_multiply.c:40:5: note: type of def: internal
+matrix_multiply.c:40:5: note: mark relevant 3, live 0: _26 = _24 * _25;
+matrix_multiply.c:40:5: note: vect_is_simple_use: operand matrix_r_I_I_lsm.87_67
+matrix_multiply.c:40:5: note: def_stmt: matrix_r_I_I_lsm.87_67 = PHI <matrix_r_I_I_lsm.87_82(5), _27(29)>
+matrix_multiply.c:40:5: note: type of def: nested cycle
+matrix_multiply.c:40:5: note: mark relevant 3, live 0: matrix_r_I_I_lsm.87_67 = PHI <matrix_r_I_I_lsm.87_82(5), _27(29)>
+matrix_multiply.c:40:5: note: worklist: examine stmt: matrix_r_I_I_lsm.87_67 = PHI <matrix_r_I_I_lsm.87_82(5), _27(29)>
+matrix_multiply.c:40:5: note: vect_is_simple_use: operand matrix_r_I_I_lsm.87_82
+matrix_multiply.c:40:5: note: def_stmt: matrix_r_I_I_lsm.87_82 = matrix_r[i_101][j_102];
+matrix_multiply.c:40:5: note: type of def: internal
+matrix_multiply.c:40:5: note: outer-loop def-stmt defining inner-loop stmt.
+matrix_multiply.c:40:5: note: mark relevant 5, live 0: matrix_r_I_I_lsm.87_82 = matrix_r[i_101][j_102];
+matrix_multiply.c:40:5: note: vect_is_simple_use: operand _27
+matrix_multiply.c:40:5: note: def_stmt: _27 = _26 + matrix_r_I_I_lsm.87_67;
+matrix_multiply.c:40:5: note: type of def: nested cycle
+matrix_multiply.c:40:5: note: mark relevant 3, live 0: _27 = _26 + matrix_r_I_I_lsm.87_67;
+matrix_multiply.c:40:5: note: already marked relevant/live.
+matrix_multiply.c:40:5: note: worklist: examine stmt: matrix_r_I_I_lsm.87_82 = matrix_r[i_101][j_102];
+matrix_multiply.c:40:5: note: worklist: examine stmt: _26 = _24 * _25;
+matrix_multiply.c:40:5: note: vect_is_simple_use: operand _24
+matrix_multiply.c:40:5: note: def_stmt: _24 = matrix_a[i_101][k_103];
+matrix_multiply.c:40:5: note: type of def: internal
+matrix_multiply.c:40:5: note: mark relevant 3, live 0: _24 = matrix_a[i_101][k_103];
+matrix_multiply.c:40:5: note: vect_is_simple_use: operand _25
+matrix_multiply.c:40:5: note: def_stmt: _25 = matrix_b[k_103][j_102];
+matrix_multiply.c:40:5: note: type of def: internal
+matrix_multiply.c:40:5: note: mark relevant 3, live 0: _25 = matrix_b[k_103][j_102];
+matrix_multiply.c:40:5: note: worklist: examine stmt: _25 = matrix_b[k_103][j_102];
+matrix_multiply.c:40:5: note: worklist: examine stmt: _24 = matrix_a[i_101][k_103];
+matrix_multiply.c:40:5: note: === vect_analyze_data_ref_dependences ===
+matrix_multiply.c:40:5: note: dependence distance  = 0.
+matrix_multiply.c:40:5: note: dependence distance == 0 between matrix_r[i_101][j_102] and matrix_r[i_101][j_102]
+matrix_multiply.c:40:5: note: === vect_determine_vectorization_factor ===
+matrix_multiply.c:40:5: note: ==> examining phi: j_102 = PHI <0(7), j_29(28)>
+matrix_multiply.c:40:5: note: ==> examining phi: .MEM_112 = PHI <.MEM_113(7), .MEM_50(28)>
+matrix_multiply.c:40:5: note: ==> examining phi: ivtmp_98 = PHI <1000(7), ivtmp_97(28)>
+matrix_multiply.c:40:5: note: ==> examining statement: matrix_r_I_I_lsm.87_82 = matrix_r[i_101][j_102];
+matrix_multiply.c:40:5: note: get vectype for scalar type:  double
+matrix_multiply.c:40:5: note: vectype: vector(2) double
+matrix_multiply.c:40:5: note: nunits = 2
+matrix_multiply.c:40:5: note: ==> examining phi: k_103 = PHI <0(5), k_28(29)>
+matrix_multiply.c:40:5: note: ==> examining phi: .MEM_111 = PHI <.MEM_112(5), .MEM_111(29)>
+matrix_multiply.c:40:5: note: ==> examining phi: matrix_r_I_I_lsm.87_67 = PHI <matrix_r_I_I_lsm.87_82(5), _27(29)>
+matrix_multiply.c:40:5: note: get vectype for scalar type:  double
+matrix_multiply.c:40:5: note: vectype: vector(2) double
+matrix_multiply.c:40:5: note: nunits = 2
+matrix_multiply.c:40:5: note: ==> examining phi: ivtmp_118 = PHI <1000(5), ivtmp_117(29)>
+matrix_multiply.c:40:5: note: ==> examining statement: _24 = matrix_a[i_101][k_103];
+matrix_multiply.c:40:5: note: get vectype for scalar type:  double
+matrix_multiply.c:40:5: note: vectype: vector(2) double
+matrix_multiply.c:40:5: note: nunits = 2
+matrix_multiply.c:40:5: note: ==> examining statement: _25 = matrix_b[k_103][j_102];
+matrix_multiply.c:40:5: note: get vectype for scalar type:  double
+matrix_multiply.c:40:5: note: vectype: vector(2) double
+matrix_multiply.c:40:5: note: nunits = 2
+matrix_multiply.c:40:5: note: ==> examining statement: _26 = _24 * _25;
+matrix_multiply.c:40:5: note: get vectype for scalar type:  double
+matrix_multiply.c:40:5: note: vectype: vector(2) double
+matrix_multiply.c:40:5: note: get vectype for scalar type:  double
+matrix_multiply.c:40:5: note: vectype: vector(2) double
+matrix_multiply.c:40:5: note: nunits = 2
+matrix_multiply.c:40:5: note: ==> examining statement: _27 = _26 + matrix_r_I_I_lsm.87_67;
+matrix_multiply.c:40:5: note: get vectype for scalar type:  double
+matrix_multiply.c:40:5: note: vectype: vector(2) double
+matrix_multiply.c:40:5: note: get vectype for scalar type:  double
+matrix_multiply.c:40:5: note: vectype: vector(2) double
+matrix_multiply.c:40:5: note: nunits = 2
+matrix_multiply.c:40:5: note: ==> examining statement: k_28 = k_103 + 1;
+matrix_multiply.c:40:5: note: skip.
+matrix_multiply.c:40:5: note: ==> examining statement: ivtmp_117 = ivtmp_118 - 1;
+matrix_multiply.c:40:5: note: skip.
+matrix_multiply.c:40:5: note: ==> examining statement: if (ivtmp_117 != 0)
+matrix_multiply.c:40:5: note: skip.
+matrix_multiply.c:40:5: note: ==> examining phi: _143 = PHI <_27(3)>
+matrix_multiply.c:40:5: note: get vectype for scalar type:  double
+matrix_multiply.c:40:5: note: vectype: vector(2) double
+matrix_multiply.c:40:5: note: nunits = 2
+matrix_multiply.c:40:5: note: ==> examining statement: matrix_r[i_101][j_102] = _143;
+matrix_multiply.c:40:5: note: get vectype for scalar type:  double
+matrix_multiply.c:40:5: note: vectype: vector(2) double
+matrix_multiply.c:40:5: note: nunits = 2
+matrix_multiply.c:40:5: note: ==> examining statement: j_29 = j_102 + 1;
+matrix_multiply.c:40:5: note: skip.
+matrix_multiply.c:40:5: note: ==> examining statement: ivtmp_97 = ivtmp_98 - 1;
+matrix_multiply.c:40:5: note: skip.
+matrix_multiply.c:40:5: note: ==> examining statement: if (ivtmp_97 != 0)
+matrix_multiply.c:40:5: note: skip.
+matrix_multiply.c:40:5: note: vectorization factor = 2
+matrix_multiply.c:40:5: note: === vect_analyze_slp ===
+matrix_multiply.c:40:5: note: === vect_make_slp_decision ===
+matrix_multiply.c:40:5: note: vectorization_factor = 2, niters = 1000
+matrix_multiply.c:40:5: note: === vect_analyze_data_refs_alignment ===
+matrix_multiply.c:40:5: note: accesses have the same alignment: matrix_r[i_101][j_102] and matrix_r[i_101][j_102]
+matrix_multiply.c:40:5: note: recording new base alignment for &matrix_r
+matrix_multiply.c:40:5: note:   alignment:    16
+matrix_multiply.c:40:5: note:   misalignment: 0
+matrix_multiply.c:40:5: note:   based on:     matrix_r_I_I_lsm.87_82 = matrix_r[i_101][j_102];
+matrix_multiply.c:40:5: note: recording new base alignment for &matrix_a
+matrix_multiply.c:40:5: note:   alignment:    16
+matrix_multiply.c:40:5: note:   misalignment: 0
+matrix_multiply.c:40:5: note:   based on:     _24 = matrix_a[i_101][k_103];
+matrix_multiply.c:40:5: note: recording new base alignment for &matrix_a + (sizetype) i_101 * 8000
+matrix_multiply.c:40:5: note:   alignment:    16
+matrix_multiply.c:40:5: note:   misalignment: 0
+matrix_multiply.c:40:5: note:   based on:     _24 = matrix_a[i_101][k_103];
+matrix_multiply.c:40:5: note: recording new base alignment for &matrix_b
+matrix_multiply.c:40:5: note:   alignment:    16
+matrix_multiply.c:40:5: note:   misalignment: 0
+matrix_multiply.c:40:5: note:   based on:     _25 = matrix_b[k_103][j_102];
+matrix_multiply.c:40:5: note: vect_compute_data_ref_alignment:
+matrix_multiply.c:40:5: note: misalign = 0 bytes of ref matrix_r[i_101][j_102]
+matrix_multiply.c:40:5: note: vect_compute_data_ref_alignment:
+matrix_multiply.c:40:5: note: inner step doesn't divide the vector alignment.
+matrix_multiply.c:40:5: note: Unknown alignment for access: matrix_a[i_101][k_103]
+matrix_multiply.c:40:5: note: vect_compute_data_ref_alignment:
+matrix_multiply.c:40:5: note: inner step divides the vector alignment.
+matrix_multiply.c:40:5: note: misalign = 0 bytes of ref matrix_b[k_103][j_102]
+matrix_multiply.c:40:5: note: vect_compute_data_ref_alignment:
+matrix_multiply.c:40:5: note: misalign = 0 bytes of ref matrix_r[i_101][j_102]
+matrix_multiply.c:40:5: note: === vect_prune_runtime_alias_test_list ===
+matrix_multiply.c:40:5: note: === vect_enhance_data_refs_alignment ===
+matrix_multiply.c:40:5: note: Unknown misalignment, naturally aligned
+matrix_multiply.c:40:5: note: vect_can_advance_ivs_p:
+matrix_multiply.c:40:5: note: Analyze phi: j_102 = PHI <0(7), j_29(28)>
+matrix_multiply.c:40:5: note: Analyze phi: .MEM_112 = PHI <.MEM_113(7), .MEM_50(28)>
+matrix_multiply.c:40:5: note: reduc or virtual phi. skip.
+matrix_multiply.c:40:5: note: Analyze phi: ivtmp_98 = PHI <1000(7), ivtmp_97(28)>
+matrix_multiply.c:40:5: note: Vectorizing an unaligned access.
+matrix_multiply.c:40:5: note: === vect_analyze_loop_operations ===
+matrix_multiply.c:40:5: note: examining phi: j_102 = PHI <0(7), j_29(28)>
+matrix_multiply.c:40:5: note: examining phi: .MEM_112 = PHI <.MEM_113(7), .MEM_50(28)>
+matrix_multiply.c:40:5: note: examining phi: ivtmp_98 = PHI <1000(7), ivtmp_97(28)>
+matrix_multiply.c:40:5: note: ==> examining statement: matrix_r_I_I_lsm.87_82 = matrix_r[i_101][j_102];
+matrix_multiply.c:40:5: note: num. args = 4 (not unary/binary/ternary op).
+matrix_multiply.c:40:5: note: vect_is_simple_use: operand matrix_r[i_101][j_102]
+matrix_multiply.c:40:5: note: not ssa-name.
+matrix_multiply.c:40:5: note: use not simple.
+matrix_multiply.c:40:5: note: can't use a fully-masked loop because the target doesn't have the appropriate masked load or store.
+matrix_multiply.c:40:5: note: vect_model_load_cost: aligned.
+matrix_multiply.c:40:5: note: vect_model_load_cost: inside_cost = 12, prologue_cost = 0 .
+matrix_multiply.c:40:5: note: examining phi: k_103 = PHI <0(5), k_28(29)>
+matrix_multiply.c:40:5: note: examining phi: .MEM_111 = PHI <.MEM_112(5), .MEM_111(29)>
+matrix_multiply.c:40:5: note: examining phi: matrix_r_I_I_lsm.87_67 = PHI <matrix_r_I_I_lsm.87_82(5), _27(29)>
+matrix_multiply.c:40:5: note: examining phi: ivtmp_118 = PHI <1000(5), ivtmp_117(29)>
+matrix_multiply.c:40:5: note: ==> examining statement: _24 = matrix_a[i_101][k_103];
+matrix_multiply.c:40:5: note: num. args = 4 (not unary/binary/ternary op).
+matrix_multiply.c:40:5: note: vect_is_simple_use: operand matrix_a[i_101][k_103]
+matrix_multiply.c:40:5: note: not ssa-name.
+matrix_multiply.c:40:5: note: use not simple.
+matrix_multiply.c:40:5: note: vect_model_load_cost: unaligned supported by hardware.
+matrix_multiply.c:40:5: note: vect_model_load_cost: inside_cost = 600, prologue_cost = 0 .
+matrix_multiply.c:40:5: note: ==> examining statement: _25 = matrix_b[k_103][j_102];
+matrix_multiply.c:40:5: note: num. args = 4 (not unary/binary/ternary op).
+matrix_multiply.c:40:5: note: vect_is_simple_use: operand matrix_b[k_103][j_102]
+matrix_multiply.c:40:5: note: not ssa-name.
+matrix_multiply.c:40:5: note: use not simple.
+matrix_multiply.c:40:5: note: vect_model_load_cost: aligned.
+matrix_multiply.c:40:5: note: vect_model_load_cost: inside_cost = 600, prologue_cost = 0 .
+matrix_multiply.c:40:5: note: ==> examining statement: _26 = _24 * _25;
+matrix_multiply.c:40:5: note: vect_is_simple_use: operand _24
+matrix_multiply.c:40:5: note: def_stmt: _24 = matrix_a[i_101][k_103];
+matrix_multiply.c:40:5: note: type of def: internal
+matrix_multiply.c:40:5: note: vect_is_simple_use: operand _25
+matrix_multiply.c:40:5: note: def_stmt: _25 = matrix_b[k_103][j_102];
+matrix_multiply.c:40:5: note: type of def: internal
+matrix_multiply.c:40:5: note: === vectorizable_operation ===
+matrix_multiply.c:40:5: note: vect_model_simple_cost: inside_cost = 1000, prologue_cost = 0 .
+matrix_multiply.c:40:5: note: ==> examining statement: _27 = _26 + matrix_r_I_I_lsm.87_67;
+matrix_multiply.c:40:5: note: vect_is_simple_use: operand _26
+matrix_multiply.c:40:5: note: def_stmt: _26 = _24 * _25;
+matrix_multiply.c:40:5: note: type of def: internal
+matrix_multiply.c:40:5: note: vect_is_simple_use: operand matrix_r_I_I_lsm.87_67
+matrix_multiply.c:40:5: note: def_stmt: matrix_r_I_I_lsm.87_67 = PHI <matrix_r_I_I_lsm.87_82(5), _27(29)>
+matrix_multiply.c:40:5: note: type of def: nested cycle
+matrix_multiply.c:40:5: note: reduc op not supported by target.
+vect_model_reduction_cost: inside_cost = 600, prologue_cost = 4, epilogue_cost = 0 .
+matrix_multiply.c:40:5: note: ==> examining statement: k_28 = k_103 + 1;
+matrix_multiply.c:40:5: note: irrelevant.
+matrix_multiply.c:40:5: note: ==> examining statement: ivtmp_117 = ivtmp_118 - 1;
+matrix_multiply.c:40:5: note: irrelevant.
+matrix_multiply.c:40:5: note: ==> examining statement: if (ivtmp_117 != 0)
+matrix_multiply.c:40:5: note: irrelevant.
+matrix_multiply.c:40:5: note: examining phi: _143 = PHI <_27(3)>
+matrix_multiply.c:40:5: note: ==> examining statement: matrix_r[i_101][j_102] = _143;
+matrix_multiply.c:40:5: note: vect_is_simple_use: operand _143
+matrix_multiply.c:40:5: note: def_stmt: _143 = PHI <_27(3)>
+matrix_multiply.c:40:5: note: type of def: internal
+matrix_multiply.c:40:5: note: vect_model_store_cost: aligned.
+matrix_multiply.c:40:5: note: vect_model_store_cost: inside_cost = 12, prologue_cost = 0 .
+matrix_multiply.c:40:5: note: ==> examining statement: j_29 = j_102 + 1;
+matrix_multiply.c:40:5: note: irrelevant.
+matrix_multiply.c:40:5: note: ==> examining statement: ivtmp_97 = ivtmp_98 - 1;
+matrix_multiply.c:40:5: note: irrelevant.
+matrix_multiply.c:40:5: note: ==> examining statement: if (ivtmp_97 != 0)
+matrix_multiply.c:40:5: note: irrelevant.
+matrix_multiply.c:40:5: note: not using a fully-masked loop.
+matrix_multiply.c:40:5: note: Cost model analysis: 
+  Vector inside of loop cost: 2824
+  Vector prologue cost: 4
+  Vector epilogue cost: 0
+  Scalar iteration cost: 120024
+  Scalar outside cost: 0
+  Vector outside cost: 4
+  prologue iterations: 0
+  epilogue iterations: 0
+  Calculated minimum iters for profitability: 1
+matrix_multiply.c:40:5: note:   Runtime profitability threshold = 2
+matrix_multiply.c:40:5: note:   Static estimate profitability threshold = 2
+matrix_multiply.c:40:5: note: loop vectorized
+matrix_multiply.c:40:5: note: === vec_transform_loop ===
+matrix_multiply.c:40:5: note: ------>vectorizing phi: j_102 = PHI <j_29(28), 0(32)>
+matrix_multiply.c:40:5: note: ------>vectorizing phi: .MEM_112 = PHI <.MEM_50(28), .MEM_113(32)>
+matrix_multiply.c:40:5: note: ------>vectorizing phi: ivtmp_98 = PHI <ivtmp_97(28), 1000(32)>
+matrix_multiply.c:40:5: note: ------>vectorizing statement: matrix_r_I_I_lsm.87_82 = matrix_r[i_101][j_102];
+matrix_multiply.c:40:5: note: transform statement.
+matrix_multiply.c:40:5: note: transform load. ncopies = 1
+matrix_multiply.c:40:5: note: create vector_type-pointer variable to type: vector(2) double  vectorizing an array ref: matrix_r
+matrix_multiply.c:40:5: note: created vectp_matrix_r.109_46
+matrix_multiply.c:40:5: note: add new stmt: vect_matrix_r_I_I_lsm.110_145 = MEM[(double *)vectp_matrix_r.108_3];
+matrix_multiply.c:40:5: note: ------>vectorizing phi: k_103 = PHI <0(5), k_28(29)>
+matrix_multiply.c:40:5: note: ------>vectorizing phi: .MEM_111 = PHI <.MEM_112(5), .MEM_111(29)>
+matrix_multiply.c:40:5: note: ------>vectorizing phi: matrix_r_I_I_lsm.87_67 = PHI <matrix_r_I_I_lsm.87_82(5), _27(29)>
+matrix_multiply.c:40:5: note: transform phi.
+matrix_multiply.c:40:5: note: ------>vectorizing phi: ivtmp_118 = PHI <1000(5), ivtmp_117(29)>
+matrix_multiply.c:40:5: note: ------>vectorizing phi: vect__27.111_146 = PHI <(5), (29)>
+matrix_multiply.c:40:5: note: ------>vectorizing statement: _24 = matrix_a[i_101][k_103];
+matrix_multiply.c:40:5: note: transform statement.
+matrix_multiply.c:40:5: note: transform load. ncopies = 1
+matrix_multiply.c:40:5: note: create vector_type-pointer variable to type: vector(2) double  vectorizing an array ref: matrix_a
+matrix_multiply.c:40:5: note: created vectp.113_147
+matrix_multiply.c:40:5: note: add new stmt: vect__24.114_154 = MEM[(double *)vectp_matrix_a.112_152];
+matrix_multiply.c:40:5: note: add new stmt: vect_cst__155 = {_24, _24};
+matrix_multiply.c:40:5: note: created new init_stmt: vect_cst__155 = {_24, _24};
+matrix_multiply.c:40:5: note: Record the vdef for outer-loop vectorization.
+matrix_multiply.c:40:5: note: ------>vectorizing statement: vect_cst__155 = {_24, _24};
+matrix_multiply.c:40:5: note: ------>vectorizing statement: _25 = matrix_b[k_103][j_102];
+matrix_multiply.c:40:5: note: transform statement.
+matrix_multiply.c:40:5: note: transform load. ncopies = 1
+matrix_multiply.c:40:5: note: create vector_type-pointer variable to type: vector(2) double  vectorizing an array ref: matrix_b
+matrix_multiply.c:40:5: note: created &matrix_b
+matrix_multiply.c:40:5: note: add new stmt: vect__25.117_160 = MEM[(double *)vectp_matrix_b.115_158];
+matrix_multiply.c:40:5: note: Record the vdef for outer-loop vectorization.
+matrix_multiply.c:40:5: note: ------>vectorizing statement: _26 = _24 * _25;
+matrix_multiply.c:40:5: note: transform statement.
+matrix_multiply.c:40:5: note: vect_is_simple_use: operand _24
+matrix_multiply.c:40:5: note: def_stmt: _24 = matrix_a[i_101][k_103];
+matrix_multiply.c:40:5: note: type of def: internal
+matrix_multiply.c:40:5: note: vect_is_simple_use: operand _25
+matrix_multiply.c:40:5: note: def_stmt: _25 = matrix_b[k_103][j_102];
+matrix_multiply.c:40:5: note: type of def: internal
+matrix_multiply.c:40:5: note: transform binary/unary operation.
+matrix_multiply.c:40:5: note: vect_get_vec_def_for_operand: _24
+matrix_multiply.c:40:5: note: vect_is_simple_use: operand _24
+matrix_multiply.c:40:5: note: def_stmt: _24 = matrix_a[i_101][k_103];
+matrix_multiply.c:40:5: note: type of def: internal
+matrix_multiply.c:40:5: note:   def_stmt =  _24 = matrix_a[i_101][k_103];
+matrix_multiply.c:40:5: note: vect_get_vec_def_for_operand: _25
+matrix_multiply.c:40:5: note: vect_is_simple_use: operand _25
+matrix_multiply.c:40:5: note: def_stmt: _25 = matrix_b[k_103][j_102];
+matrix_multiply.c:40:5: note: type of def: internal
+matrix_multiply.c:40:5: note:   def_stmt =  _25 = matrix_b[k_103][j_102];
+matrix_multiply.c:40:5: note: add new stmt: vect__26.118_161 = vect_cst__155 * vect__25.117_160;
+matrix_multiply.c:40:5: note: Record the vdef for outer-loop vectorization.
+matrix_multiply.c:40:5: note: ------>vectorizing statement: _27 = _26 + matrix_r_I_I_lsm.87_67;
+matrix_multiply.c:40:5: note: transform statement.
+matrix_multiply.c:40:5: note: vect_is_simple_use: operand _26
+matrix_multiply.c:40:5: note: def_stmt: _26 = _24 * _25;
+matrix_multiply.c:40:5: note: type of def: internal
+matrix_multiply.c:40:5: note: vect_is_simple_use: operand matrix_r_I_I_lsm.87_67
+matrix_multiply.c:40:5: note: def_stmt: matrix_r_I_I_lsm.87_67 = PHI <matrix_r_I_I_lsm.87_82(5), _27(29)>
+matrix_multiply.c:40:5: note: type of def: nested cycle
+matrix_multiply.c:40:5: note: reduc op not supported by target.
+matrix_multiply.c:40:5: note: transform reduction.
+matrix_multiply.c:40:5: note: vect_get_vec_def_for_operand: _26
+matrix_multiply.c:40:5: note: vect_is_simple_use: operand _26
+matrix_multiply.c:40:5: note: def_stmt: _26 = _24 * _25;
+matrix_multiply.c:40:5: note: type of def: internal
+matrix_multiply.c:40:5: note:   def_stmt =  _26 = _24 * _25;
+matrix_multiply.c:40:5: note: vect_get_vec_def_for_operand: matrix_r_I_I_lsm.87_67
+matrix_multiply.c:40:5: note: vect_is_simple_use: operand matrix_r_I_I_lsm.87_67
+matrix_multiply.c:40:5: note: def_stmt: matrix_r_I_I_lsm.87_67 = PHI <matrix_r_I_I_lsm.87_82(5), _27(29)>
+matrix_multiply.c:40:5: note: type of def: nested cycle
+matrix_multiply.c:40:5: note:   def_stmt =  matrix_r_I_I_lsm.87_67 = PHI <matrix_r_I_I_lsm.87_82(5), _27(29)>
+matrix_multiply.c:40:5: note: add new stmt: vect__27.119_162 = vect__26.118_161 + vect__27.111_146;
+matrix_multiply.c:40:5: note: vect_is_simple_use: operand matrix_r_I_I_lsm.87_82
+matrix_multiply.c:40:5: note: def_stmt: matrix_r_I_I_lsm.87_82 = matrix_r[i_101][j_102];
+matrix_multiply.c:40:5: note: type of def: internal
+matrix_multiply.c:40:5: note: vect_get_vec_def_for_operand: matrix_r_I_I_lsm.87_82
+matrix_multiply.c:40:5: note: vect_is_simple_use: operand matrix_r_I_I_lsm.87_82
+matrix_multiply.c:40:5: note: def_stmt: matrix_r_I_I_lsm.87_82 = matrix_r[i_101][j_102];
+matrix_multiply.c:40:5: note: type of def: internal
+matrix_multiply.c:40:5: note:   def_stmt =  matrix_r_I_I_lsm.87_82 = matrix_r[i_101][j_102];
+matrix_multiply.c:40:5: note: transform reduction: created def-use cycle: vect__27.111_146 = PHI <vect_matrix_r_I_I_lsm.110_145(5), vect__27.119_162(29)>
+vect__27.119_162 = vect__26.118_161 + vect__27.111_146;
+matrix_multiply.c:40:5: note: ------>vectorizing statement: k_28 = k_103 + 1;
+matrix_multiply.c:40:5: note: ------>vectorizing statement: ivtmp_117 = ivtmp_118 - 1;
+matrix_multiply.c:40:5: note: ------>vectorizing statement: vectp_matrix_a.112_153 = vectp_matrix_a.112_152 + 8;
+matrix_multiply.c:40:5: note: ------>vectorizing statement: vectp_matrix_b.115_159 = vectp_matrix_b.115_158 + 8000;
+matrix_multiply.c:40:5: note: ------>vectorizing statement: if (ivtmp_117 != 0)
+matrix_multiply.c:40:5: note: ------>vectorizing phi: _143 = PHI <_27(3)>
+matrix_multiply.c:40:5: note: ------>vectorizing phi: vect__27.119_163 = PHI <vect__27.119_162(3)>
+matrix_multiply.c:40:5: note: ------>vectorizing statement: matrix_r[i_101][j_102] = _143;
+matrix_multiply.c:40:5: note: transform statement.
+matrix_multiply.c:40:5: note: vect_is_simple_use: operand _143
+matrix_multiply.c:40:5: note: def_stmt: _143 = PHI <_27(3)>
+matrix_multiply.c:40:5: note: type of def: internal
+matrix_multiply.c:40:5: note: transform store. ncopies = 1
+matrix_multiply.c:40:5: note: vect_get_vec_def_for_operand: _143
+matrix_multiply.c:40:5: note: vect_is_simple_use: operand _143
+matrix_multiply.c:40:5: note: def_stmt: _143 = PHI <_27(3)>
+matrix_multiply.c:40:5: note: type of def: internal
+matrix_multiply.c:40:5: note:   def_stmt =  _143 = PHI <_27(3)>
+matrix_multiply.c:40:5: note: create vector_type-pointer variable to type: vector(2) double  vectorizing an array ref: matrix_r
+matrix_multiply.c:40:5: note: created vectp_matrix_r.122_164
+matrix_multiply.c:40:5: note: add new stmt: MEM[(double *)vectp_matrix_r.121_167] = vect__27.119_163;
+matrix_multiply.c:40:5: note: ------>vectorizing statement: j_29 = j_102 + 1;
+matrix_multiply.c:40:5: note: ------>vectorizing statement: ivtmp_97 = ivtmp_98 - 1;
+matrix_multiply.c:40:5: note: ------>vectorizing statement: vectp_matrix_r.108_144 = vectp_matrix_r.108_3 + 16;
+matrix_multiply.c:40:5: note: ------>vectorizing statement: vectp_matrix_a.112_151 = vectp_matrix_a.112_150 + 0;
+matrix_multiply.c:40:5: note: ------>vectorizing statement: vectp_matrix_b.115_157 = vectp_matrix_b.115_156 + 16;
+matrix_multiply.c:40:5: note: ------>vectorizing statement: vectp_matrix_r.121_168 = vectp_matrix_r.121_167 + 16;
+matrix_multiply.c:40:5: note: ------>vectorizing statement: if (ivtmp_97 != 0)
+matrix_multiply.c:40:5: note: New loop exit condition: if (ivtmp_171 < 500)
+matrix_multiply.c:40:5: note: LOOP VECTORIZED
+matrix_multiply.c:40:5: note: OUTER LOOP VECTORIZED
+
+
+Analyzing loop at matrix_multiply.c:41
+matrix_multiply.c:41:7: note: ===== analyze_loop_nest =====
+matrix_multiply.c:41:7: note: outer-loop already vectorized.
+matrix_multiply.c:60:5: note: vectorized 3 loops in function.
+matrix_multiply.c:60:5: note: ===vect_slp_analyze_bb===
+matrix_multiply.c:68:3: note: ===vect_slp_analyze_bb===
+matrix_multiply.c:68:3: note: ===vect_slp_analyze_bb===
+matrix_multiply.c:41:7: note: === vect_analyze_data_refs ===
+matrix_multiply.c:41:7: note: got vectype for stmt: _24 = matrix_a[i_101][k_103];
+vector(2) double
+matrix_multiply.c:41:7: note: not vectorized: no vectype for stmt: vect__25.117_160 = MEM[(double *)vectp_matrix_b.115_158];
+ scalar_type: vector(2) double
+matrix_multiply.c:41:7: note: === vect_analyze_data_ref_accesses ===
+matrix_multiply.c:41:7: note: not consecutive access _24 = matrix_a[i_101][k_103];
+matrix_multiply.c:41:7: note: not vectorized: no grouped stores in basic block.
+matrix_multiply.c:41:7: note: ===vect_slp_analyze_bb===
+matrix_multiply.c:41:7: note: === vect_analyze_data_refs ===
+matrix_multiply.c:41:7: note: not vectorized: no vectype for stmt: MEM[(double *)vectp_matrix_r.121_167] = vect__27.119_163;
+ scalar_type: vector(2) double
+matrix_multiply.c:41:7: note: not vectorized: not enough data-refs in basic block.
+matrix_multiply.c:41:7: note: ===vect_slp_analyze_bb===
+matrix_multiply.c:41:7: note: ===vect_slp_analyze_bb===
+matrix_multiply.c:41:7: note: === vect_analyze_data_refs ===
+matrix_multiply.c:41:7: note: not vectorized: no vectype for stmt: vect_matrix_r_I_I_lsm.110_145 = MEM[(double *)vectp_matrix_r.108_3];
+ scalar_type: vector(2) double
+matrix_multiply.c:41:7: note: not vectorized: not enough data-refs in basic block.
+matrix_multiply.c:41:7: note: ===vect_slp_analyze_bb===
+matrix_multiply.c:39:3: note: === vect_analyze_data_refs ===
+matrix_multiply.c:39:3: note: not vectorized: not enough data-refs in basic block.
+matrix_multiply.c:39:3: note: ===vect_slp_analyze_bb===
+matrix_multiply.c:39:3: note: ===vect_slp_analyze_bb===
+matrix_multiply.c:39:3: note: === vect_analyze_data_refs ===
+matrix_multiply.c:39:3: note: not vectorized: not enough data-refs in basic block.
+matrix_multiply.c:39:3: note: ===vect_slp_analyze_bb===
+matrix_multiply.c:60:5: note: === vect_analyze_data_refs ===
+matrix_multiply.c:60:5: note: got vectype for stmt: _12 = tp.tv_sec;
+vector(2) long int
+matrix_multiply.c:60:5: note: got vectype for stmt: _16 = tp.tv_usec;
+vector(2) long int
+matrix_multiply.c:60:5: note: === vect_analyze_data_ref_accesses ===
+matrix_multiply.c:60:5: note: Detected interleaving load tp.tv_sec and tp.tv_usec
+matrix_multiply.c:60:5: note: Detected interleaving load of size 2 starting with _12 = tp.tv_sec;
+matrix_multiply.c:60:5: note: not vectorized: no grouped stores in basic block.
+matrix_multiply.c:60:5: note: ===vect_slp_analyze_bb===
+matrix_multiply.c:72:5: note: ===vect_slp_analyze_bb===
+matrix_multiply.c:72:5: note: ===vect_slp_analyze_bb===
+matrix_multiply.c:41:7: note: === vect_analyze_data_refs ===
+matrix_multiply.c:41:7: note: got vectype for stmt: _35 = matrix_a[i_104][k_106];
+vector(2) double
+matrix_multiply.c:41:7: note: not vectorized: no vectype for stmt: vect__36.102_139 = MEM[(double *)vectp_matrix_b.100_4];
+ scalar_type: vector(2) double
+matrix_multiply.c:41:7: note: === vect_analyze_data_ref_accesses ===
+matrix_multiply.c:41:7: note: not consecutive access _35 = matrix_a[i_104][k_106];
+matrix_multiply.c:41:7: note: not vectorized: no grouped stores in basic block.
+matrix_multiply.c:41:7: note: ===vect_slp_analyze_bb===
+matrix_multiply.c:41:7: note: === vect_analyze_data_refs ===
+matrix_multiply.c:41:7: note: not vectorized: no vectype for stmt: MEM[(double *)vectp_matrix_r.106_124] = vect__38.104_132;
+ scalar_type: vector(2) double
+matrix_multiply.c:41:7: note: not vectorized: not enough data-refs in basic block.
+matrix_multiply.c:41:7: note: ===vect_slp_analyze_bb===
+matrix_multiply.c:41:7: note: ===vect_slp_analyze_bb===
+matrix_multiply.c:41:7: note: === vect_analyze_data_refs ===
+matrix_multiply.c:41:7: note: not vectorized: no vectype for stmt: vect_matrix_r_I_I_lsm.95_63 = MEM[(double *)vectp_matrix_r.93_72];
+ scalar_type: vector(2) double
+matrix_multiply.c:41:7: note: not vectorized: not enough data-refs in basic block.
+matrix_multiply.c:41:7: note: ===vect_slp_analyze_bb===
+matrix_multiply.c:39:3: note: === vect_analyze_data_refs ===
+matrix_multiply.c:39:3: note: not vectorized: not enough data-refs in basic block.
+matrix_multiply.c:39:3: note: ===vect_slp_analyze_bb===
+matrix_multiply.c:39:3: note: ===vect_slp_analyze_bb===
+matrix_multiply.c:39:3: note: === vect_analyze_data_refs ===
+matrix_multiply.c:39:3: note: not vectorized: not enough data-refs in basic block.
+matrix_multiply.c:39:3: note: ===vect_slp_analyze_bb===
+matrix_multiply.c:71:3: note: === vect_analyze_data_refs ===
+matrix_multiply.c:71:3: note: not vectorized: not enough data-refs in basic block.
+matrix_multiply.c:71:3: note: ===vect_slp_analyze_bb===
+matrix_multiply.c:71:3: note: ===vect_slp_analyze_bb===
+matrix_multiply.c:60:5: note: === vect_analyze_data_refs ===
+matrix_multiply.c:60:5: note: got vectype for stmt: _51 = tp.tv_sec;
+vector(2) long int
+matrix_multiply.c:60:5: note: got vectype for stmt: _53 = tp.tv_usec;
+vector(2) long int
+matrix_multiply.c:60:5: note: === vect_analyze_data_ref_accesses ===
+matrix_multiply.c:60:5: note: Detected interleaving load tp.tv_sec and tp.tv_usec
+matrix_multiply.c:60:5: note: Detected interleaving load of size 2 starting with _51 = tp.tv_sec;
+matrix_multiply.c:60:5: note: not vectorized: no grouped stores in basic block.
+matrix_multiply.c:60:5: note: ===vect_slp_analyze_bb===
+matrix_multiply.c:60:5: note: ===vect_slp_analyze_bb===
+matrix_multiply.c:54:11: note: === vect_analyze_data_refs ===
+matrix_multiply.c:54:11: note: not vectorized: no vectype for stmt: vect__44.90_89 = MEM[(double *)vectp_matrix_r.88_91];
+ scalar_type: vector(2) double
+matrix_multiply.c:54:11: note: not vectorized: not enough data-refs in basic block.
+matrix_multiply.c:54:11: note: ===vect_slp_analyze_bb===
+matrix_multiply.c:52:3: note: === vect_analyze_data_refs ===
+matrix_multiply.c:52:3: note: not vectorized: not enough data-refs in basic block.
+matrix_multiply.c:52:3: note: ===vect_slp_analyze_bb===
+matrix_multiply.c:52:3: note: ===vect_slp_analyze_bb===
+matrix_multiply.c:52:3: note: === vect_analyze_data_refs ===
+matrix_multiply.c:52:3: note: not vectorized: not enough data-refs in basic block.
+matrix_multiply.c:52:3: note: ===vect_slp_analyze_bb===
+matrix_multiply.c:79:3: note: === vect_analyze_data_refs ===
+matrix_multiply.c:79:3: note: not vectorized: not enough data-refs in basic block.
+matrix_multiply.c:79:3: note: === vect_analyze_data_refs ===
+matrix_multiply.c:79:3: note: not vectorized: not enough data-refs in basic block.
